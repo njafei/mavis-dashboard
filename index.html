@@ -23,19 +23,7 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
 
-  /* ── Login ── */
-  #login-screen { display: flex; align-items: center; justify-content: center; min-height: 100vh; }
-  .login-box { background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 48px 40px; width: 360px; text-align: center; }
-  .login-box .logo { font-size: 2rem; margin-bottom: 8px; }
-  .login-box h2 { font-size: 1rem; color: var(--muted2); font-weight: 400; margin-bottom: 32px; letter-spacing: 0.05em; }
-  .login-box input { width: 100%; padding: 14px 18px; border-radius: 10px; border: 1px solid var(--card-border); background: var(--bg); color: var(--text); font-size: 1rem; margin-bottom: 12px; outline: none; transition: border 0.2s; }
-  .login-box input:focus { border-color: var(--accent); }
-  .login-box button { width: 100%; padding: 14px; border-radius: 10px; border: none; background: var(--accent); color: #fff; font-size: 1rem; font-weight: 600; cursor: pointer; transition: opacity 0.2s; }
-  .login-box button:hover { opacity: 0.85; }
-  .login-error { color: #ef4444; font-size: 0.8rem; margin-top: 10px; display: none; }
 
-  /* ── Dashboard ── */
-  #dashboard { display: none; }
 
   header { padding: 20px 28px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--card-border); background: var(--card); position: sticky; top: 0; z-index: 100; }
   header .brand { display: flex; align-items: center; gap: 10px; }
@@ -45,7 +33,7 @@
   header .header-right { display: flex; align-items: center; gap: 16px; }
   .live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
   .live-label { font-size: 0.7rem; color: var(--green); font-weight: 500; }
-  .logout-btn { background: var(--card); border: 1px solid var(--card-border); color: var(--muted2); padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 0.8rem; }
+
 
   main { max-width: 1100px; margin: 0 auto; padding: 28px 24px; }
 
@@ -147,17 +135,6 @@
 </head>
 <body>
 
-<!-- ── Login ── -->
-<div id="login-screen">
-  <div class="login-box">
-    <div class="logo">🧭</div>
-    <h2>Mavis Dashboard</h2>
-    <input type="password" id="password-input" placeholder="Enter password" onkeydown="if(event.key==='Enter')tryLogin()">
-    <button onclick="tryLogin()">Enter</button>
-    <div id="login-error" class="login-error">Incorrect password</div>
-  </div>
-</div>
-
 <!-- ── Dashboard ── -->
 <div id="dashboard">
   <header>
@@ -171,7 +148,6 @@
     <div class="header-right">
       <div class="live-dot"></div>
       <div class="live-label">LIVE</div>
-      <button class="logout-btn" onclick="logout()">退出</button>
     </div>
   </header>
 
@@ -329,9 +305,6 @@
   </div>
 </div>
 
-<script>
-const PW = 'mima';
-
 // ── Countdown helpers ──
 function pad(n) { return String(n).padStart(2,'0'); }
 function getNextTime(h, m) {
@@ -372,23 +345,7 @@ function updateTimers() {
   if (el3) el3.textContent = getNextHourly() + ' 后';
 }
 
-function tryLogin() {
-  const v = document.getElementById('password-input').value;
-  if (v === PW) {
-    document.getElementById('login-screen').style.display = 'none';
-    document.getElementById('dashboard').style.display = 'block';
-    updateTimers();
-  } else {
-    document.getElementById('login-error').style.display = 'block';
-  }
-}
-
-function logout() {
-  document.getElementById('login-screen').style.display = 'flex';
-  document.getElementById('dashboard').style.display = 'none';
-  document.getElementById('password-input').value = '';
-  document.getElementById('login-error').style.display = 'none';
-}
+window.addEventListener('DOMContentLoaded', updateTimers);
 </script>
 </body>
 </html>
