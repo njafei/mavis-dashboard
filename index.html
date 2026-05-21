@@ -5,109 +5,379 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mavis Dashboard</title>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --bg: #09090f;
+    --card: #12121c;
+    --card-border: #1e1e30;
+    --accent: #8b5cf6;
+    --accent2: #06b6d4;
+    --green: #10b981;
+    --amber: #f59e0b;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --muted2: #94a3b8;
+  }
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f0f1a; color: #e0e0e0; min-height: 100vh; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
 
+  /* ── Login ── */
   #login-screen { display: flex; align-items: center; justify-content: center; min-height: 100vh; }
-  #login-box { background: #1a1a2e; border: 1px solid #333; border-radius: 12px; padding: 40px; text-align: center; }
-  #login-box h1 { font-size: 1.5rem; margin-bottom: 24px; color: #7c3aed; }
-  #login-box input { width: 100%; padding: 12px 16px; border-radius: 8px; border: 1px solid #333; background: #0f0f1a; color: #fff; font-size: 1rem; margin-bottom: 16px; }
-  #login-box button { width: 100%; padding: 12px; border-radius: 8px; border: none; background: #7c3aed; color: #fff; font-size: 1rem; cursor: pointer; }
-  #login-box button:hover { background: #6d28d9; }
-  #login-error { color: #ef4444; font-size: 0.875rem; margin-top: 12px; display: none; }
+  .login-box { background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 48px 40px; width: 360px; text-align: center; }
+  .login-box .logo { font-size: 2rem; margin-bottom: 8px; }
+  .login-box h2 { font-size: 1rem; color: var(--muted2); font-weight: 400; margin-bottom: 32px; letter-spacing: 0.05em; }
+  .login-box input { width: 100%; padding: 14px 18px; border-radius: 10px; border: 1px solid var(--card-border); background: var(--bg); color: var(--text); font-size: 1rem; margin-bottom: 12px; outline: none; transition: border 0.2s; }
+  .login-box input:focus { border-color: var(--accent); }
+  .login-box button { width: 100%; padding: 14px; border-radius: 10px; border: none; background: var(--accent); color: #fff; font-size: 1rem; font-weight: 600; cursor: pointer; transition: opacity 0.2s; }
+  .login-box button:hover { opacity: 0.85; }
+  .login-error { color: #ef4444; font-size: 0.8rem; margin-top: 10px; display: none; }
 
-  #dashboard { display: none; padding: 24px; max-width: 900px; margin: 0 auto; }
-  #dashboard h1 { font-size: 1.75rem; margin-bottom: 24px; color: #7c3aed; }
-  .card { background: #1a1a2e; border: 1px solid #2a2a4a; border-radius: 12px; padding: 20px; margin-bottom: 16px; }
-  .card h2 { font-size: 1rem; color: #a0a0c0; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
-  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
-  .stat { background: #0f0f1a; border-radius: 8px; padding: 16px; text-align: center; }
-  .stat .num { font-size: 2rem; font-weight: 700; color: #7c3aed; }
-  .stat .label { font-size: 0.75rem; color: #666; margin-top: 4px; }
-  .bar { background: #2a2a4a; border-radius: 6px; height: 12px; overflow: hidden; margin: 8px 0; }
-  .bar-fill { background: linear-gradient(90deg, #7c3aed, #a78bfa); height: 100%; border-radius: 6px; transition: width 0.5s; }
-  .progress-text { font-size: 0.875rem; color: #a0a0c0; margin-bottom: 8px; }
-  .stock-list { list-style: none; }
-  .stock-list li { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #2a2a4a; }
-  .stock-list li:last-child { border-bottom: none; }
-  .stock-name { color: #e0e0e0; }
-  .stock-yield { color: #10b981; font-weight: 600; }
-  .stock-yield.diamond { color: #f59e0b; }
-  .timestamp { font-size: 0.75rem; color: #555; margin-top: 12px; text-align: right; }
-  .logout { float: right; background: #333; border: none; color: #888; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.75rem; }
+  /* ── Dashboard ── */
+  #dashboard { display: none; }
+
+  header { padding: 20px 28px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--card-border); background: var(--card); position: sticky; top: 0; z-index: 100; }
+  header .brand { display: flex; align-items: center; gap: 10px; }
+  header .brand-icon { font-size: 1.4rem; }
+  header .brand-name { font-size: 1.1rem; font-weight: 700; color: var(--text); }
+  header .brand-sub { font-size: 0.7rem; color: var(--muted); }
+  header .header-right { display: flex; align-items: center; gap: 16px; }
+  .live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+  .live-label { font-size: 0.7rem; color: var(--green); font-weight: 500; }
+  .logout-btn { background: var(--card); border: 1px solid var(--card-border); color: var(--muted2); padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 0.8rem; }
+
+  main { max-width: 1100px; margin: 0 auto; padding: 28px 24px; }
+
+  /* ── Section titles ── */
+  .section-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; margin-left: 2px; }
+
+  /* ── Hero card ── */
+  .hero { background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 28px 32px; margin-bottom: 16px; display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
+  .hero-progress { position: relative; width: 120px; height: 120px; flex-shrink: 0; }
+  .hero-progress svg { transform: rotate(-90deg); }
+  .hero-progress circle { fill: none; stroke-width: 8; }
+  .hero-progress .bg { stroke: var(--card-border); }
+  .hero-progress .fill { stroke: var(--accent); stroke-linecap: round; transition: stroke-dashoffset 1s ease; }
+  .hero-pct { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .hero-pct .num { font-size: 1.6rem; font-weight: 700; line-height: 1; }
+  .hero-pct .lbl { font-size: 0.6rem; color: var(--muted); margin-top: 3px; }
+  .hero-info { flex: 1; min-width: 200px; }
+  .hero-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 4px; }
+  .hero-sub { font-size: 0.8rem; color: var(--muted2); margin-bottom: 16px; }
+  .hero-stats { display: flex; gap: 24px; flex-wrap: wrap; }
+  .hero-stat { }
+  .hero-stat .n { font-size: 1.3rem; font-weight: 700; color: var(--accent); }
+  .hero-stat .l { font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2px; }
+
+  /* ── Grid layout ── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  @media (max-width: 700px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+
+  .card { background: var(--card); border: 1px solid var(--card-border); border-radius: 16px; padding: 22px; }
+  .card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+  .card-title { font-size: 0.85rem; font-weight: 600; color: var(--text); display: flex; align-items: center; gap: 8px; }
+  .card-icon { font-size: 1rem; }
+  .card-badge { font-size: 0.65rem; padding: 3px 8px; border-radius: 20px; background: rgba(139,92,246,0.15); color: var(--accent); font-weight: 500; }
+
+  /* ── Stat boxes ── */
+  .stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px; margin-bottom: 14px; }
+  .sbox { background: var(--bg); border-radius: 10px; padding: 14px 16px; text-align: center; }
+  .sbox .n { font-size: 1.4rem; font-weight: 700; }
+  .sbox .n.accent { color: var(--accent); }
+  .sbox .n.green { color: var(--green); }
+  .sbox .n.cyan { color: var(--accent2); }
+  .sbox .n.amber { color: var(--amber); }
+  .sbox .l { font-size: 0.65rem; color: var(--muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
+
+  /* ── Schedule list ── */
+  .schedule-list { display: flex; flex-direction: column; gap: 10px; }
+  .sch-item { display: flex; align-items: center; gap: 12px; padding: 10px 12px; background: var(--bg); border-radius: 10px; }
+  .sch-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .sch-dot.green { background: var(--green); }
+  .sch-dot.amber { background: var(--amber); }
+  .sch-dot.muted { background: var(--muted); }
+  .sch-info { flex: 1; }
+  .sch-name { font-size: 0.8rem; font-weight: 500; }
+  .sch-time { font-size: 0.68rem; color: var(--muted); margin-top: 2px; }
+  .sch-next { font-size: 0.7rem; color: var(--muted2); }
+
+  /* ── Music grid ── */
+  .genre-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+  .genre-tag { padding: 5px 12px; border-radius: 20px; font-size: 0.72rem; font-weight: 500; }
+  .genre-tag.purple { background: rgba(139,92,246,0.15); color: #a78bfa; }
+  .genre-tag.cyan { background: rgba(6,182,212,0.12); color: #22d3ee; }
+  .genre-tag.green { background: rgba(16,185,129,0.12); color: #34d399; }
+  .genre-tag.amber { background: rgba(245,158,11,0.12); color: #fbbf24; }
+  .genre-tag.red { background: rgba(239,68,68,0.12); color: #f87171; }
+  .genre-tag.rose { background: rgba(244,63,94,0.12); color: #fb7185; }
+  .genre-tag.orange { background: rgba(249,115,22,0.12); color: #fb923c; }
+
+  /* ── Stock list ── */
+  .stock-list { display: flex; flex-direction: column; gap: 8px; }
+  .stock-item { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: var(--bg); border-radius: 10px; }
+  .stock-left { display: flex; align-items: center; gap: 10px; }
+  .stock-name { font-size: 0.82rem; font-weight: 500; }
+  .stock-code { font-size: 0.65rem; color: var(--muted); }
+  .stock-score { font-size: 0.75rem; color: var(--muted2); }
+  .stock-yield { font-size: 0.85rem; font-weight: 700; }
+  .stock-yield.good { color: var(--green); }
+  .stock-yield.great { color: var(--amber); }
+  .no-data { font-size: 0.8rem; color: var(--muted); text-align: center; padding: 20px; }
+
+  /* ── Token bar ── */
+  .token-bar-wrap { margin-bottom: 12px; }
+  .token-bar-label { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--muted2); margin-bottom: 6px; }
+  .token-bar { background: var(--card-border); border-radius: 6px; height: 8px; overflow: hidden; }
+  .token-bar-fill { height: 100%; border-radius: 6px; transition: width 0.8s ease; }
+  .token-bar-fill.low { background: var(--green); }
+  .token-bar-fill.mid { background: var(--amber); }
+  .token-bar-fill.high { background: #ef4444; }
+
+  /* ── Footer ── */
+  .footer { text-align: center; padding: 24px; font-size: 0.68rem; color: var(--muted); border-top: 1px solid var(--card-border); margin-top: 24px; }
+  .footer span { color: var(--accent); }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
 </style>
 </head>
 <body>
 
+<!-- ── Login ── -->
 <div id="login-screen">
-  <div id="login-box">
-    <h1>Mavis Dashboard</h1>
+  <div class="login-box">
+    <div class="logo">🧭</div>
+    <h2>Mavis Dashboard</h2>
     <input type="password" id="password-input" placeholder="Enter password" onkeydown="if(event.key==='Enter')tryLogin()">
     <button onclick="tryLogin()">Enter</button>
-    <div id="login-error">Incorrect password</div>
+    <div id="login-error" class="login-error">Incorrect password</div>
   </div>
 </div>
 
+<!-- ── Dashboard ── -->
 <div id="dashboard">
-  <button class="logout" onclick="logout()">Logout</button>
-  <h1>Mavis Dashboard</h1>
-
-  <div class="card">
-    <h2>Book 2 Progress</h2>
-    <div class="progress-text">Ch001–Ch856 · 180/856 完成 (21.0%)</div>
-    <div class="bar"><div class="bar-fill" style="width:21%"></div></div>
-    <div style="margin-top:12px">
-      <div class="stat-grid">
-        <div class="stat"><div class="num">180</div><div class="label">已完成章</div></div>
-        <div class="stat"><div class="num">676</div><div class="label">剩余章</div></div>
-        <div class="stat"><div class="num">80+</div><div class="label">平均分</div></div>
-        <div class="stat"><div class="num">9</div><div class="label">完成批次</div></div>
+  <header>
+    <div class="brand">
+      <div class="brand-icon">🧭</div>
+      <div>
+        <div class="brand-name">Mavis Dashboard</div>
+        <div class="brand-sub">刘斐 · 创作与研究</div>
       </div>
     </div>
-  </div>
-
-  <div class="card">
-    <h2>Music Today</h2>
-    <div class="stat-grid">
-      <div class="stat"><div class="num">24</div><div class="label">今日产出</div></div>
-      <div class="stat"><div class="num">古风</div><div class="label">最近风格</div></div>
-      <div class="stat"><div class="num">105s</div><div class="label">最近时长</div></div>
-      <div class="stat"><div class="num">6</div><div class="label">累计精选</div></div>
+    <div class="header-right">
+      <div class="live-dot"></div>
+      <div class="live-label">LIVE</div>
+      <button class="logout-btn" onclick="logout()">退出</button>
     </div>
-  </div>
+  </header>
 
-  <div class="card">
-    <h2>Stock Opportunities</h2>
-    <ul class="stock-list">
-      <li><span class="stock-name">沪电股份</span><span class="stock-yield">7.5%</span></li>
-      <li><span class="stock-name">国电南瑞</span><span class="stock-yield diamond">★ 8.25%</span></li>
-      <li><span class="stock-name">胜宏科技</span><span class="stock-yield">7.3%</span></li>
-      <li><span class="stock-name">三花智控</span><span class="stock-yield">6.63%</span></li>
-    </ul>
-    <div class="timestamp">数据更新于 2026-05-21</div>
-  </div>
+  <main>
 
-  <div class="card">
-    <h2>Token Usage</h2>
-    <div class="stat-grid">
-      <div class="stat"><div class="num">$7.79</div><div class="label">昨日消耗</div></div>
-      <div class="stat"><div class="num">$58.67</div><div class="label">本月累计</div></div>
-      <div class="stat"><div class="num">$200</div><div class="label">月度额度</div></div>
-      <div class="stat"><div class="num">90.2%</div><div class="label">缓存命中率</div></div>
+    <!-- ── Hero: Book 2 Progress ── -->
+    <div class="section-label">APOCALYPSE LORD · Book 2 深度改写</div>
+    <div class="hero">
+      <div class="hero-progress">
+        <svg width="120" height="120" viewBox="0 0 120 120">
+          <circle class="bg" cx="60" cy="60" r="50"/>
+          <circle class="fill" cx="60" cy="60" r="50"
+            stroke-dasharray="314.159"
+            stroke-dashoffset="291.968"/>
+        </svg>
+        <div class="hero-pct">
+          <div class="num">7.0<span style="font-size:1rem">%</span></div>
+          <div class="lbl">完成</div>
+        </div>
+      </div>
+      <div class="hero-info">
+        <div class="hero-title">Book 2 深度改写进度</div>
+        <div class="hero-sub">Ch003 – Ch856 · 已完成 60 章</div>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="n">60</div><div class="l">已完成</div></div>
+          <div class="hero-stat"><div class="n">796</div><div class="l">剩余</div></div>
+          <div class="hero-stat"><div class="n">6</div><div class="l">批次</div></div>
+          <div class="hero-stat"><div class="n">60</div><div class="l">目标均分</div></div>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="timestamp">Last updated: 2026-05-21 12:42 CST</div>
+    <!-- ── Scheduled Tasks ── -->
+    <div class="section-label" style="margin-top:20px">定时任务 · Cron</div>
+    <div class="card" style="margin-bottom:16px">
+      <div class="card-header">
+        <div class="card-title"><span class="card-icon">⏰</span> 定时任务</div>
+        <div class="card-badge">活跃</div>
+      </div>
+      <div class="schedule-list">
+        <div class="sch-item">
+          <div class="sch-dot green"></div>
+          <div class="sch-info">
+            <div class="sch-name">hourly-music · 灵感音乐生成</div>
+            <div class="sch-time">每 30 分钟 · Session keep 3</div>
+          </div>
+          <div class="sch-next" id="next-music">—</div>
+        </div>
+        <div class="sch-item">
+          <div class="sch-dot green"></div>
+          <div class="sch-info">
+            <div class="sch-name">hourly-stock-monitor · 股票监控</div>
+            <div class="sch-time">每整点 · 5只股票深度分析</div>
+          </div>
+          <div class="sch-next" id="next-stock">—</div>
+        </div>
+        <div class="sch-item">
+          <div class="sch-dot green"></div>
+          <div class="sch-info">
+            <div class="sch-name">novel-agent-watchdog · 小说流水线</div>
+            <div class="sch-time">每小时 · 检查小说家进度</div>
+          </div>
+          <div class="sch-next" id="next-watchdog">—</div>
+        </div>
+        <div class="sch-item">
+          <div class="sch-dot amber"></div>
+          <div class="sch-info">
+            <div class="sch-name">amazon-kindle-daily · Kindle 调研日报</div>
+            <div class="sch-time">每天 03:00 · 亚马逊排行分析</div>
+          </div>
+          <div class="sch-next" id="next-kindle">明天 03:00</div>
+        </div>
+        <div class="sch-item">
+          <div class="sch-dot amber"></div>
+          <div class="sch-info">
+            <div class="sch-name">token-daily-report · Token Plan 余额</div>
+            <div class="sch-time">每天 09:15 · 浏览器读取实时余额</div>
+          </div>
+          <div class="sch-next" id="next-token">今天 09:15</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Music + Token ── -->
+    <div class="grid-2" style="margin-bottom:16px">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><span class="card-icon">🎵</span> 今日音乐</div>
+          <div class="card-badge">2026-05-22</div>
+        </div>
+        <div class="stat-row">
+          <div class="sbox"><div class="n accent">34</div><div class="l">今日产出</div></div>
+          <div class="sbox"><div class="n cyan">6</div><div class="l">精选收录</div></div>
+          <div class="sbox"><div class="n green">1</div><div class="l">本小时</div></div>
+        </div>
+        <div class="section-label" style="margin-top:10px;margin-bottom:8px">已用风格</div>
+        <div class="genre-grid">
+          <span class="genre-tag purple">氛围电子</span>
+          <span class="genre-tag cyan">慢流行</span>
+          <span class="genre-tag green">民谣</span>
+          <span class="genre-tag amber">古风</span>
+          <span class="genre-tag rose">灵魂乐</span>
+          <span class="genre-tag orange">摇滚</span>
+          <span class="genre-tag purple">放克</span>
+          <span class="genre-tag cyan">爵士</span>
+          <span class="genre-tag green">RnB</span>
+          <span class="genre-tag amber">Downtempo</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><span class="card-icon">💎</span> Token Plan</div>
+          <div class="card-badge">MiniMax</div>
+        </div>
+        <div class="token-bar-wrap">
+          <div class="token-bar-label"><span>文本生成</span><span>124 / 1,500 (8%)</span></div>
+          <div class="token-bar"><div class="token-bar-fill low" style="width:8%"></div></div>
+        </div>
+        <div class="token-bar-wrap">
+          <div class="token-bar-label"><span>音乐生成</span><span>1 / 100 (1%)</span></div>
+          <div class="token-bar"><div class="token-bar-fill low" style="width:1%"></div></div>
+        </div>
+        <div class="token-bar-wrap">
+          <div class="token-bar-label"><span>图像生成</span><span>0 / 50 (0%)</span></div>
+          <div class="token-bar"><div class="token-bar-fill low" style="width:0%"></div></div>
+        </div>
+        <div class="token-bar-wrap">
+          <div class="token-bar-label"><span>图片理解</span><span>0 / 150 (0%)</span></div>
+          <div class="token-bar"><div class="token-bar-fill low" style="width:0%"></div></div>
+        </div>
+        <div class="stat-row" style="margin-top:14px">
+          <div class="sbox"><div class="n green">4h40m</div><div class="l">重置倒计时</div></div>
+          <div class="sbox"><div class="n amber">UTC+8</div><div class="l">时区</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Stock ── -->
+    <div class="section-label">股票机会</div>
+    <div class="card" style="margin-bottom:16px">
+      <div class="card-header">
+        <div class="card-title"><span class="card-icon">📈</span> 股票机会</div>
+        <div class="card-badge">每小时更新</div>
+      </div>
+      <div id="stock-list" class="stock-list">
+        <div class="no-data">暂无机会记录 · 每小时自动分析</div>
+      </div>
+    </div>
+
+  </main>
+
+  <div class="footer">
+    Mavis Dashboard · <span>MiniMax Agent</span> · 数据每日自动更新
+  </div>
 </div>
 
 <script>
-const PW = 'F3k9mV2p';
+const PW = 'mima';
+
+// ── Countdown helpers ──
+function pad(n) { return String(n).padStart(2,'0'); }
+function getNextTime(h, m) {
+  const now = new Date();
+  const next = new Date(now);
+  next.setHours(h, m, 0, 0);
+  if (next <= now) next.setDate(next.getDate() + 1);
+  const diff = Math.round((next - now) / 1000);
+  const h2 = Math.floor(diff / 3600);
+  const m2 = Math.floor((diff % 3600) / 60);
+  return pad(h2) + 'h' + pad(m2) + 'm';
+}
+function getNextMusic() {
+  const now = new Date();
+  const mins = now.getMinutes();
+  const secs = now.getSeconds();
+  const nextSlot = mins < 30 ? 30 : 60;
+  const diff = ((nextSlot - mins) * 60 - secs) % (60 * 60);
+  const h2 = Math.floor(diff / 3600);
+  const m2 = Math.floor((diff % 3600) / 60);
+  return pad(h2) + 'h' + pad(m2) + 'm';
+}
+function getNextHourly() {
+  const now = new Date();
+  const secs = now.getSeconds();
+  const diff = 3600 - (now.getMinutes() * 60 + secs) % 3600;
+  const h2 = Math.floor(diff / 3600);
+  const m2 = Math.floor((diff % 3600) / 60);
+  return pad(h2) + 'h' + pad(m2) + 'm';
+}
+
+function updateTimers() {
+  const el = document.getElementById('next-music');
+  if (el) el.textContent = getNextMusic() + ' 后';
+  const el2 = document.getElementById('next-stock');
+  if (el2) el2.textContent = getNextHourly() + ' 后';
+  const el3 = document.getElementById('next-watchdog');
+  if (el3) el3.textContent = getNextHourly() + ' 后';
+}
 
 function tryLogin() {
   const v = document.getElementById('password-input').value;
   if (v === PW) {
     document.getElementById('login-screen').style.display = 'none';
     document.getElementById('dashboard').style.display = 'block';
+    updateTimers();
   } else {
     document.getElementById('login-error').style.display = 'block';
   }
