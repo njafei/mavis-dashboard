@@ -1,9 +1,14 @@
 name: Deploy
 on: push
-permissions: contents: read
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+environment: github-pages
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: github-pages
     steps:
       - uses: actions/checkout@v4
       - uses: actions/upload-pages-artifact@v3
@@ -11,3 +16,4 @@ jobs:
           path: .
       - id: deployment
         uses: actions/deploy-pages@v4
+
