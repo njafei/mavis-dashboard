@@ -154,7 +154,7 @@
       <div class="brand-sub">刘斐 · 创作与研究</div>
     </div>
   </div>
-  <div class="update-label" id="update-time">更新于 2026-05-23 02:00</div>
+  <div class="update-label" id="update-time">更新于 2026-05-23 02:30</div>
 </header>
 
 <main>
@@ -190,9 +190,9 @@
   <div class="card">
     <div class="card-title"><span class="card-icon">📊</span> 今日数据</div>
     <div class="stat-row">
-      <div class="sbox"><div class="n indigo" id="stat-music">4</div><div class="l">音乐产出</div></div>
+      <div class="sbox"><div class="n indigo" id="stat-music">5</div><div class="l">音乐产出</div></div>
       <div class="sbox"><div class="n green" id="stat-fav">4</div><div class="l">精选收录</div></div>
-      <div class="sbox"><div class="n amber" id="stat-token">31%</div><div class="l">Token已用</div></div>
+      <div class="sbox"><div class="n amber" id="stat-token">89%</div><div class="l">Token已用</div></div>
     </div>
   </div>
 
@@ -258,16 +258,16 @@
     <div class="card-title"><span class="card-icon">💎</span> Token Plan 余额</div>
     <div class="token-bars">
       <div class="token-row">
-        <div class="token-label"><span>文本生成</span><span id="token-text-label">460 / 1,500</span></div>
-        <div class="token-bar"><div class="token-fill green" id="token-text-bar" style="width:31%"></div></div>
+        <div class="token-label"><span>文本生成</span><span id="token-text-label">13336 / 15,000</span></div>
+        <div class="token-bar"><div class="token-fill red" id="token-text-bar" style="width:89%"></div></div>
       </div>
       <div class="token-row">
-        <div class="token-label"><span>音乐生成</span><span id="token-music-label">28 / 100</span></div>
-        <div class="token-bar"><div class="token-fill green" id="token-music-bar" style="width:28%"></div></div>
+        <div class="token-label"><span>音乐生成</span><span id="token-music-label">48 / 100</span></div>
+        <div class="token-bar"><div class="token-fill green" id="token-music-bar" style="width:48%"></div></div>
       </div>
       <div class="token-row">
-        <div class="token-label"><span>图像生成</span><span id="token-img-label">17 / 50</span></div>
-        <div class="token-bar"><div class="token-fill green" id="token-img-bar" style="width:34%"></div></div>
+        <div class="token-label"><span>图像生成</span><span id="token-img-label">0 / 50</span></div>
+        <div class="token-bar"><div class="token-fill green" id="token-img-bar" style="width:0%"></div></div>
       </div>
       <div class="token-row">
         <div class="token-label"><span>图片理解</span><span id="token-img-under-label">0 / 150</span></div>
@@ -402,6 +402,7 @@ var grid = document.getElementById('music-grid');
     }).catch(function(err){
       console.error("fetch error:", err);
     })
+});
 });
 });
 });
