@@ -332,6 +332,7 @@ window.__MUSIC_DATA__ = [];
 
   // ── Music renderer ──
   function renderMusic() {
+    console.log("renderMusic called, tracks:", (window.__MUSIC_DATA__||[]).length);
     var grid = document.getElementById('music-grid');
     var tracks = window.__MUSIC_DATA__;
     if (!tracks || tracks.length === 0) {
