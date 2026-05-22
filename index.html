@@ -323,15 +323,13 @@ window.__MUSIC_DATA__ = [];
 
   // ── Music renderer ──
   function renderMusic() {
-    console.log("renderMusic called, tracks:", (window.__MUSIC_DATA__||[]).length);
-    var grid = document.getElementById('music-grid');
+var grid = document.getElementById('music-grid');
     var tracks = window.__MUSIC_DATA__;
     if (!tracks || tracks.length === 0) {
       console.log("renderMusic: no tracks, setting empty state");
       grid.innerHTML = '<div class="track-card"><div class="track-name" style="color:var(--muted);text-align:center;padding:20px 0">暂无音乐数据</div></div>';
       return;
     }
-    console.log("renderMusic: rendering " + tracks.length + " tracks");
     var html = '';
     for (var i = 0; i < tracks.length; i++) {
       var t = tracks[i];
