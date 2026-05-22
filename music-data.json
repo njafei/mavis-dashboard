@@ -1,13 +1,5 @@
 [
   {
-    "name": "原声Woods低语",
-    "name_en": "Acoustic WoodsOfWhispers",
-    "url": "https://cdn.hailuoai.com/mcp/anon/general/1779436047_eb98459e.bin",
-    "cover": "",
-    "time": "22:31",
-    "lyrics": "[主歌1]\n\nI walk 穿过 the woods where the autumn leaves fall\nFollowing the path of an old guitar's call\nThe morning 光芒 whispers 穿过 branches so high\nA story of wanderers beneath the 湛蓝 天空\n\n[副歌]\n\nOh, woods of whispers, speak 轻柔 to my soul\nYour colors of amber and rust make me whole\nWith every step deeper, I find where I belong\nA melody flows where I've always felt strong\n\n[主歌2]\n\nThe river runs quiet beside the old stone\nA hummingbird hovers, no longer alone\nThe pine trees stand tall like the legends of old\nTheir shadows are dancing, the stories unfold\n\n[副歌]\n\nOh, woods of whispers, speak 轻柔 to my soul\nYour colors of amber and rust make me whole\nWith every step deeper, I find where I belong\nA melody flows where I've always felt strong\n\n[尾声]\n\nAs the sun paints the horizon in golden hue\nI'll carry this music forever with you"
-  },
-  {
     "name": "原声CountryWanderer",
     "name_en": "Acoustic CountryWanderer",
     "url": "https://cdn.hailuoai.com/mcp/anon/general/1779436818_ff9e366b.bin",
@@ -30,6 +22,14 @@
     "cover": "",
     "time": "22:34",
     "lyrics": ""
+  },
+  {
+    "name": "电影感HorizonatDusk",
+    "name_en": "Cinematic Horizon at Dusk",
+    "url": "https://cdn.hailuoai.com/mcp/anon/general/1779442213_13c4eaa2.bin",
+    "cover": "",
+    "time": "22:35",
+    "lyrics": "[主歌1]\n\n消逝 lights across the 天空\nColors melting into 夜\nEvery moment passes by\nSlowly 消逝 out of sight\n\n[副歌]\n\nHorizon at dusk\nWhere the daylight 相遇 the dust\nEvery memory will fade away\nInto the evening grey\n\n[主歌2]\n\nSilent echoes in the air\nShadows dancing everywhere\n时间 消融 like morning haze\nLost within the twilight phase\n\n[副歌]\n\nHorizon at dusk\nWhere the daylight 相遇 the dust\nAll the moments we once made\nSlowly start to fade"
   },
   {
     "name": "慢节奏午夜之间",
