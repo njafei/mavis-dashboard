@@ -344,14 +344,14 @@ var grid = document.getElementById('music-grid');
           lyricsHtml += '<span class="track-lyrics-toggle" onclick="toggleLyrics(' + i + ')">展开全部 ▼</span>';
         }
       }
-      html += '<div class="track-card">';
-      if (cover) html += '<img class="track-cover" src="' + cover + '" alt="' + t.name + '">';
-      html += '<div class="name-cn">' + escHtml(t.name) + '</div>';
-      if (t.name_en) html += '<div class="name-en">' + escHtml(t.name_en) + '</div>';
-      html += '<div class="track-time">' + (t.time || '') + '</div>';
-      html += audioTag;
-      html += lyricsHtml;
-      html += '</div>';
+      var coverImg = cover ? '<img class="track-cover" src="' + cover + '" alt="" style="width:52px;height:52px;border-radius:8px;object-fit:cover;flex-shrink:0;">' : '';
+      var infoHtml = '<div style="flex:1;min-width:0"><div class="name-cn">' + escHtml(t.name) + '</div>';
+      if (t.name_en) infoHtml += '<div class="name-en">' + escHtml(t.name_en) + '</div>';
+      infoHtml += '</div>';
+      var timeHtml = '<div class="track-time" style="flex-shrink:0">' + (t.time || '') + '</div>';
+      html += '<div class="track-card">' + coverImg + infoHtml + timeHtml + audioTag + '</div>';
+      // put lyrics below card
+      if (lyricsHtml) html += '<div style="margin-top:-2px;margin-bottom:10px;">' + lyricsHtml + '</div>';
     }
     grid.innerHTML = html;
   }
