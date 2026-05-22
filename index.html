@@ -124,6 +124,12 @@
   .track-name { font-size: 0.85rem; font-weight: 500; color: var(--text); line-height: 1.3; }
   .track-time { font-size: 0.72rem; color: var(--muted); }
   .track-play { display: flex; align-items: center; gap: 8px; }
+  .track-lyrics { font-size: 0.78rem; color: var(--muted); line-height: 1.7; background: var(--bg); border-radius: 8px; padding: 10px 12px; white-space: pre-wrap; max-height: 120px; overflow: hidden; position: relative; }
+  .track-lyrics.expanded { max-height: none; }
+  .track-lyrics-toggle { font-size: 0.72rem; color: var(--accent); cursor: pointer; margin-top: 4px; display: inline-block; }
+  .track-lyrics-toggle:hover { opacity: 0.7; }
+  .name-cn { font-size: 0.9rem; font-weight: 500; color: var(--text); }
+  .name-en { font-size: 0.72rem; color: var(--muted); margin-top: 1px; }
   .play-btn { background: var(--accent); color: #fff; border: none; border-radius: 50%; width: 36px; height: 36px; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: opacity 0.2s; }
   .play-btn:hover { opacity: 0.85; }
   audio { width: 100%; height: 32px; }
@@ -148,7 +154,7 @@
       <div class="brand-sub">刘斐 · 创作与研究</div>
     </div>
   </div>
-  <div class="update-label" id="update-time">更新于 2026-05-22 10:16</div>
+  <div class="update-label" id="update-time">更新于 2026-05-22 10:21</div>
 </header>
 
 <main>
@@ -283,7 +289,148 @@
 <div class="footer">Mavis Dashboard · 每 30 分钟自动更新</div>
 
 <script>
-window.__MUSIC_DATA__ = [{"name": "Upbeat MorningGoldenLake", "url": "https://cdn.hailuoai.com/mcp/anon/general/1779416188_6f046677.bin", "cover": "", "time": "22:18"}, {"name": "Lo-fi Morning Reverie", "url": "https://cdn.hailuoai.com/mcp/anon/general/1779416190_bb1e1511.bin", "cover": "", "time": "22:19"}, {"name": "Acoustic Morning Bloom", "url": "https://cdn.hailuoai.com/mcp/anon/general/1779416194_fb0c1b1e.bin", "cover": "", "time": "22:20"}, {"name": "Lo-fi ContemplativeDawn", "url": "https://cdn.hailuoai.com/mcp/anon/general/1779416196_8be239b9.bin", "cover": "", "time": "22:21"}, {"name": "Downtempo BetweenTwoMidnights", "url": "https://cdn.hailuoai.com/mcp/anon/general/1779416199_f6663cf5.bin", "cover": "", "time": "21:31"}]; // 由 dashboard-update.py 填充
+window.__MUSIC_DATA__ = [{"name": "明快MorningGoldenLake", "name_en": "Upbeat MorningGoldenLake", "url": "https://cdn.hailuoai.com/mcp/anon/general/1779416188_6f046677.bin", "cover": "", "time": "22:18", "lyrics": "[主歌1]
+
+Morning 光芒 spills 轻柔 and slow
+穿过 the pine trees, golden glow
+Lake water shimmers, breeze takes flight
+A brand new day, open wide
+
+[副歌]
+
+Wake up now, the sun is here
+Every 暗影 starts to clear
+Morning calls, the world is near
+A new beginning, nothing to fear
+
+[主歌2]
+
+Footsteps 轻柔 on morning dew
+天空 so wide and skies so 湛蓝
+Every breath tastes fresh and new
+This moment's ours, just me and you
+
+[副歌]
+
+Wake up now, the sun is here
+Every 暗影 starts to clear
+Morning calls, the world is near
+A new beginning, nothing to fear"}, {"name": "低保真清晨遐想", "name_en": "Lo-fi Morning Reverie", "url": "https://cdn.hailuoai.com/mcp/anon/general/1779416190_bb1e1511.bin", "cover": "", "time": "22:19", "lyrics": "[主歌1]
+
+Morning 光芒 穿过 the window
+Dancing on the pages of an old book
+Coffee steam rising slowly
+As the city starts to wake
+
+[副歌]
+
+This quiet hour, it feels so right
+Like 时间 moved slower just for us tonight
+Take a breath, let the moment stay
+We'll find our peace in the 光芒 of day
+
+[主歌2]
+
+Dusty records on the shelf now
+Stories waiting to be heard
+Someone's laughter in the hallway
+A melody without words
+
+[副歌]
+
+This quiet hour, it feels so right
+Like 时间 moved slower just for us tonight
+Take a breath, let the moment stay
+We'll find our peace in the 光芒 of day
+
+[尾声]
+
+Morning reverie..."}, {"name": "原声清晨绽放", "name_en": "Acoustic Morning Bloom", "url": "https://cdn.hailuoai.com/mcp/anon/general/1779416194_fb0c1b1e.bin", "cover": "", "time": "22:20", "lyrics": "[主歌1]
+
+Morning 光芒 breaks 穿过 the window pane
+A brand new day is waiting just the same
+The coffee steams, the birds begin to sing
+Every small beginning holds everything
+
+[副歌]
+
+Blooming 明亮 beneath the golden 天空
+Seasons turn but hope never dies
+Every 黎明 renews what 夜 concealed
+Morning beauty stays forever revealed
+
+[主歌2]
+
+Footsteps fall on the garden stone
+Warm sunshine feels like coming home
+The world unfolds in 光影 of green and gold
+Stories waiting to be told
+
+[副歌]
+
+Blooming 明亮 beneath the golden 天空
+Seasons turn but hope never dies
+Every 黎明 renews what 夜 concealed
+Morning beauty stays forever revealed
+
+[桥段]
+
+光芒 breaks 穿过
+梦境 come true
+Morning dew
+Starts anew"}, {"name": "低保真ContemplativeDawn", "name_en": "Lo-fi ContemplativeDawn", "url": "https://cdn.hailuoai.com/mcp/anon/general/1779416196_8be239b9.bin", "cover": "", "time": "22:21", "lyrics": "[主歌1]
+
+Morning 光芒 穿过 the window pane
+Coffee steam rising, 轻柔 refrain
+Pages turning, ink on skin
+A quiet ritual begins
+
+[副歌]
+
+Golden hours, they don't last long
+But this moment feels so strong
+Every breath, a brand new start
+Morning's 低语 at my heart
+
+[主歌2]
+
+City wakes beneath my feet
+Streets still quiet, rhythms complete
+Pen in hand, the world stands still
+This is where the 梦境 distill
+
+[副歌]
+
+Golden hours, they don't last long
+But this moment feels so strong
+Every breath, a brand new start
+Morning's 低语 at my heart"}, {"name": "慢节奏BetweenTwoMidnights", "name_en": "Downtempo BetweenTwoMidnights", "url": "https://cdn.hailuoai.com/mcp/anon/general/1779416199_f6663cf5.bin", "cover": "", "time": "21:31", "lyrics": "Verse 1:
+The city sleeps but I am wide awake
+Under neon glow my silent heart does ache
+Footsteps echo on the empty road
+Carrying 梦境 that never quite unload
+
+Chorus:
+之间 two midnights I found my way
+In the quiet dark where lost souls stay
+Every streetlight tells a story old
+In this space 之间 my heart and 寒冷
+
+Verse 2:
+Windows dark, the world has closed its eyes
+Only the moon watches 穿过 the skies
+Solitude tastes sweet when no one sees
+The peace that comes with whispered memories
+
+Chorus:
+之间 two midnights I found my way
+In the quiet dark where lost souls stay
+Every streetlight tells a story old
+In this space 之间 my heart and 寒冷
+
+Outro:
+Slowly 消逝 into dawn's first 光芒
+Just another dreamer in the 夜"}]; // 由 dashboard-update.py 填充
 
 (function() {
   // ── Helpers ──
@@ -321,15 +468,48 @@ window.__MUSIC_DATA__ = [{"name": "Upbeat MorningGoldenLake", "url": "https://cd
       var t = tracks[i];
       var cover = t.cover || '';
       var audioTag = '<audio controls preload="none"><source src="' + t.url + '" type="audio/mpeg">您的浏览器不支持音频播放</audio>';
+      var lyricsHtml = '';
+      if (t.lyrics) {
+        var shortLyrics = t.lyrics.split('\n').slice(0, 6).join('\n');
+        var isLong = t.lyrics.split('\n').length > 6;
+        lyricsHtml = '<div class="track-lyrics' + (isLong ? '' : '') + '" id="lyrics-' + i + '">' + escHtml(shortLyrics) + (isLong ? '\n…' : '') + '</div>';
+        if (isLong) {
+          lyricsHtml += '<span class="track-lyrics-toggle" onclick="toggleLyrics(' + i + ')">展开全部 ▼</span>';
+        }
+      }
       html += '<div class="track-card">';
       if (cover) html += '<img class="track-cover" src="' + cover + '" alt="' + t.name + '">';
-      html += '<div class="track-name">' + t.name + '</div>';
+      html += '<div class="name-cn">' + escHtml(t.name) + '</div>';
+      if (t.name_en) html += '<div class="name-en">' + escHtml(t.name_en) + '</div>';
       html += '<div class="track-time">' + (t.time || '') + '</div>';
       html += audioTag;
+      html += lyricsHtml;
       html += '</div>';
     }
     grid.innerHTML = html;
   }
+
+  function escHtml(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  window._lyricsData = [];
+  window.toggleLyrics = function(idx) {
+    var el = document.getElementById('lyrics-' + idx);
+    if (!el) return;
+    if (!window._lyricsData[idx]) window._lyricsData[idx] = el.textContent;
+    var full = window.__MUSIC_DATA__[idx].lyrics || '';
+    if (el.textContent === window._lyricsData[idx] + '\n…') {
+      el.textContent = full;
+      el.classList.add('expanded');
+      el.nextElementSibling.textContent = '收起 ▲';
+    } else {
+      var short = full.split('\n').slice(0, 6).join('\n') + '\n…';
+      el.textContent = short;
+      el.classList.remove('expanded');
+      el.nextElementSibling.textContent = '展开全部 ▼';
+    }
+  };
 
   // ── Init timers ──
   function init() {
