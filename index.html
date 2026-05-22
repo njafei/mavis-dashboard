@@ -295,6 +295,7 @@ window.__MUSIC_DATA__ = [];
   fetch('music-data.json').then(function(r){return r.json();}).then(function(d){
     window.__MUSIC_DATA__ = d;
     if (typeof renderMusic === "function") renderMusic();
+    console.log("fetch done, tracks:", window.__MUSIC_DATA__.length);
   });
 })();
 
