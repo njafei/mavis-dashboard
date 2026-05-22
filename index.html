@@ -290,13 +290,14 @@
 
 <script>
 window.__MUSIC_DATA__ = [];
+
 (function(){
   fetch('music-data.json').then(function(r){return r.json();}).then(function(d){
     window.__MUSIC_DATA__ = d;
     renderMusic();
-  }
   });
-})()
+});
+()
 
 
 
