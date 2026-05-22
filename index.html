@@ -295,6 +295,9 @@ window.__MUSIC_DATA__ = [];
   fetch('music-data.json').then(function(r){return r.json();}).then(function(d){
     window.__MUSIC_DATA__ = d;
     console.log("fetch done, tracks:", window.__MUSIC_DATA__.length);
+    renderMusic();
+  }).catch(function(err){
+    console.error("fetch error:", err);
   });
 })();
 
@@ -398,7 +401,7 @@ window.__MUSIC_DATA__ = [];
       document.getElementById('next-kindle').textContent = '每天 03:00';
       document.getElementById('next-token').textContent = '每天 09:15';
     }
-    if (window.__MUSIC_DATA__.length) renderMusic();
+    renderMusic();
   }
   window.addEventListener('DOMContentLoaded', init);
 })()
