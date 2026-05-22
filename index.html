@@ -154,7 +154,7 @@
       <div class="brand-sub">刘斐 · 创作与研究</div>
     </div>
   </div>
-  <div class="update-label" id="update-time">更新于 2026-05-22 17:30</div>
+  <div class="update-label" id="update-time">更新于 2026-05-22 21:00</div>
 </header>
 
 <main>
@@ -190,7 +190,7 @@
   <div class="card">
     <div class="card-title"><span class="card-icon">📊</span> 今日数据</div>
     <div class="stat-row">
-      <div class="sbox"><div class="n indigo" id="stat-music">35</div><div class="l">音乐产出</div></div>
+      <div class="sbox"><div class="n indigo" id="stat-music">36</div><div class="l">音乐产出</div></div>
       <div class="sbox"><div class="n green" id="stat-fav">4</div><div class="l">精选收录</div></div>
       <div class="sbox"><div class="n amber" id="stat-token">31%</div><div class="l">Token已用</div></div>
     </div>
@@ -401,7 +401,8 @@ var grid = document.getElementById('music-grid');
       renderMusic();
     }).catch(function(err){
       console.error("fetch error:", err);
-    });
+    })
+})();;
   }
   window.addEventListener('DOMContentLoaded', init);
 })()
