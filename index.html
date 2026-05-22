@@ -33,6 +33,7 @@
   header .header-right { display: flex; align-items: center; gap: 16px; }
   .live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
   .live-label { font-size: 0.7rem; color: var(--green); font-weight: 500; }
+  .update-time { font-size: 0.68rem; color: var(--muted); padding-left: 8px; border-left: 1px solid var(--card-border); margin-left: 4px; padding-left: 12px; }
 
 
   main { max-width: 1100px; margin: 0 auto; padding: 28px 24px; }
@@ -137,7 +138,7 @@
 
 <!-- ── Dashboard ── -->
 <div id="dashboard">
-  <header>
+  <header data-updated="2026-05-22 08:32">
     <div class="brand">
       <div class="brand-icon">🧭</div>
       <div>
@@ -148,32 +149,26 @@
     <div class="header-right">
       <div class="live-dot"></div>
       <div class="live-label">LIVE</div>
-    </div>
-  </header>
-
-  <main>
-
-    <!-- ── Hero: Book 2 Progress ── -->
-    <div class="section-label">APOCALYPSE LORD · Book 2 深度改写</div>
+      <div class="update-time" id="update-time">更新于 2026-05-22 08:32"section-label">APOCALYPSE LORD · Book 2 深度改写</div>
     <div class="hero">
       <div class="hero-progress">
         <svg width="120" height="120" viewBox="0 0 120 120">
           <circle class="bg" cx="60" cy="60" r="50"/>
           <circle class="fill" cx="60" cy="60" r="50"
             stroke-dasharray="314.159"
-            stroke-dashoffset="277.091"/>
+            stroke-dashoffset="277.458"/>
         </svg>
         <div class="hero-pct">
-          <div class="num">11.8<span style="font-size:1rem">%</span></div>
+          <div class="num">11.7<span style="font-size:1rem">%</span></div>
           <div class="lbl">完成</div>
         </div>
       </div>
       <div class="hero-info">
         <div class="hero-title">Book 2 深度改写进度</div>
-        <div class="hero-sub">Ch003 – Ch856 · 已完成 101 章</div>
+        <div class="hero-sub">Ch003 – Ch856 · 已完成 100 章</div>
         <div class="hero-stats">
-          <div class="hero-stat"><div class="n">101</div><div class="l">已完成</div></div>
-          <div class="hero-stat"><div class="n">755</div><div class="l">剩余</div></div>
+          <div class="hero-stat"><div class="n">100</div><div class="l">已完成</div></div>
+          <div class="hero-stat"><div class="n">756</div><div class="l">剩余</div></div>
           <div class="hero-stat"><div class="n">6</div><div class="l">批次</div></div>
           <div class="hero-stat"><div class="n">60</div><div class="l">目标均分</div></div>
         </div>
@@ -239,15 +234,16 @@
           <div class="card-badge">2026-05-22</div>
         </div>
         <div class="stat-row">
-          <div class="sbox"><div class="n accent">17</div><div class="l">今日产出</div></div>
+          <div class="sbox"><div class="n accent">18</div><div class="l">今日产出</div></div>
           <div class="sbox"><div class="n cyan">4</div><div class="l">精选收录</div></div>
           <div class="sbox"><div class="n green">1</div><div class="l">本小时</div></div>
         </div>
         <div class="section-label" style="margin-top:10px;margin-bottom:8px">已用风格</div>
         <div class="genre-grid">
+          <span class="genre-tag cyan">Ambient</span>
           <span class="genre-tag purple">Cinematic</span>
           <span class="genre-tag purple">Dreamy</span>
-          <span class="genre-tag cyan">Ambient</span>
+          <span class="genre-tag purple">Upbeat</span>
           <span class="genre-tag purple">Ethereal</span>
         </div></div>
         </div>
