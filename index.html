@@ -295,7 +295,7 @@ window.__MUSIC_DATA__ = [];
   fetch('music-data.json').then(function(r){return r.json();}).then(function(d){
     window.__MUSIC_DATA__ = d;
     console.log("fetch done, tracks:", window.__MUSIC_DATA__.length);
-    renderMusic();
+    try { renderMusic(); } catch(e) { console.error("renderMusic error:", e); }
   }).catch(function(err){
     console.error("fetch error:", err);
   });
@@ -336,9 +336,11 @@ window.__MUSIC_DATA__ = [];
     var grid = document.getElementById('music-grid');
     var tracks = window.__MUSIC_DATA__;
     if (!tracks || tracks.length === 0) {
+      console.log("renderMusic: no tracks, setting empty state");
       grid.innerHTML = '<div class="track-card"><div class="track-name" style="color:var(--muted);text-align:center;padding:20px 0">暂无音乐数据</div></div>';
       return;
     }
+    console.log("renderMusic: rendering " + tracks.length + " tracks");
     var html = '';
     for (var i = 0; i < tracks.length; i++) {
       var t = tracks[i];
