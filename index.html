@@ -399,7 +399,7 @@ window.__MUSIC_DATA__ = [];
       document.getElementById('next-kindle').textContent = '每天 03:00';
       document.getElementById('next-token').textContent = '每天 09:15';
     }
-    renderMusic();
+    if (window.__MUSIC_DATA__.length) renderMusic();
   }
   window.addEventListener('DOMContentLoaded', init);
 })()
