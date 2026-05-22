@@ -154,7 +154,7 @@
       <div class="brand-sub">刘斐 · 创作与研究</div>
     </div>
   </div>
-  <div class="update-label" id="update-time">更新于 2026-05-22 11:04</div>
+  <div class="update-label" id="update-time">更新于 2026-05-22 11:05</div>
 </header>
 
 <main>
@@ -290,6 +290,12 @@
 
 <script>
 window.__MUSIC_DATA__ = [];
+(function(){
+  fetch('music-data.json').then(function(r){return r.json();}).then(function(d){
+    window.__MUSIC_DATA__ = d;
+    renderMusic();
+  });
+})();;
 (function(){
   fetch('music-data.json').then(function(r){return r.json();}).then(function(d){
     window.__MUSIC_DATA__ = d;
