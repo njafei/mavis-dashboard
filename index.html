@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mavis Dashboard</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --bg: #fafafa;
+    --surface: #ffffff;
+    --border: #e5e7eb;
+    --text: #1a1a2e;
+    --muted: #6b7280;
+    --accent: #6366f1;
+    --accent-light: #eef2ff;
+    --green: #059669;
+    --amber: #d97706;
+    --red: #dc2626;
+    --radius: 14px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding-bottom: 60px;
+  }
+
+  /* ── Header ── */
+  header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand-icon { font-size: 1.3rem; }
+  .brand-name { font-size: 1rem; font-weight: 700; color: var(--text); }
+  .brand-sub { font-size: 0.72rem; color: var(--muted); }
+  .update-label { font-size: 0.72rem; color: var(--muted); background: var(--accent-light); color: var(--accent); padding: 4px 12px; border-radius: 20px; font-weight: 500; }
+
+  /* ── Main ── */
+  main { max-width: 860px; margin: 0 auto; padding: 32px 24px; }
+
+  /* ── Section label ── */
+  .sec { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; margin-top: 28px; }
+  .sec:first-child { margin-top: 0; }
+
+  /* ── Progress hero ── */
+  .progress-hero {
+    background: var(--accent);
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    color: #fff;
+  }
+  .progress-ring { position: relative; width: 96px; height: 96px; flex-shrink: 0; }
+  .progress-ring svg { transform: rotate(-90deg); }
+  .progress-ring circle { fill: none; stroke-width: 8; }
+  .progress-ring .bg { stroke: rgba(255,255,255,0.2); }
+  .progress-ring .fill { stroke: #fff; stroke-linecap: round; transition: stroke-dashoffset 1.2s ease; }
+  .ring-center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .ring-pct { font-size: 1.4rem; font-weight: 700; line-height: 1; }
+  .ring-lbl { font-size: 0.6rem; opacity: 0.7; margin-top: 2px; }
+  .hero-info { flex: 1; }
+  .hero-title { font-size: 1rem; font-weight: 700; margin-bottom: 3px; }
+  .hero-sub { font-size: 0.8rem; opacity: 0.75; margin-bottom: 18px; }
+  .hero-stats { display: flex; gap: 20px; flex-wrap: wrap; }
+  .hstat {}
+  .hstat .n { font-size: 1.4rem; font-weight: 700; }
+  .hstat .l { font-size: 0.62rem; opacity: 0.65; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2px; }
+
+  /* ── Cards ── */
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 24px; }
+  .card-title { font-size: 0.82rem; font-weight: 600; color: var(--text); display: flex; align-items: center; gap: 7px; margin-bottom: 16px; }
+  .card-icon { font-size: 0.9rem; }
+
+  /* ── Mini stat row ── */
+  .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .sbox { background: var(--bg); border-radius: 10px; padding: 14px; text-align: center; }
+  .sbox .n { font-size: 1.5rem; font-weight: 700; }
+  .sbox .n.indigo { color: var(--accent); }
+  .sbox .n.green { color: var(--green); }
+  .sbox .n.amber { color: var(--amber); }
+  .sbox .l { font-size: 0.65rem; color: var(--muted); margin-top: 3px; }
+
+  /* ── Task list ── */
+  .task-list { display: flex; flex-direction: column; gap: 8px; }
+  .task-item { display: flex; align-items: center; gap: 12px; padding: 11px 14px; background: var(--bg); border-radius: 10px; }
+  .task-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .task-dot.green { background: var(--green); }
+  .task-dot.amber { background: var(--amber); }
+  .task-info { flex: 1; }
+  .task-name { font-size: 0.8rem; font-weight: 500; }
+  .task-sched { font-size: 0.68rem; color: var(--muted); margin-top: 1px; }
+  .task-next { font-size: 0.72rem; color: var(--muted); white-space: nowrap; }
+
+  /* ── Token bars ── */
+  .token-bars { display: flex; flex-direction: column; gap: 12px; }
+  .token-row { }
+  .token-label { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--muted); margin-bottom: 5px; }
+  .token-bar { background: var(--bg); border-radius: 6px; height: 6px; overflow: hidden; }
+  .token-fill { height: 100%; border-radius: 6px; transition: width 1s ease; }
+  .token-fill.green { background: var(--green); }
+  .token-fill.amber { background: var(--amber); }
+  .token-fill.red { background: var(--red); }
+
+  /* ── Music player ── */
+  .music-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+  .track-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+  .track-cover { width: 100%; aspect-ratio: 1; border-radius: 8px; object-fit: cover; background: var(--bg); }
+  .track-name { font-size: 0.85rem; font-weight: 500; color: var(--text); line-height: 1.3; }
+  .track-time { font-size: 0.72rem; color: var(--muted); }
+  .track-play { display: flex; align-items: center; gap: 8px; }
+  .track-lyrics { font-size: 0.78rem; color: var(--muted); line-height: 1.7; background: var(--bg); border-radius: 8px; padding: 10px 12px; white-space: pre-wrap; max-height: 120px; overflow: hidden; position: relative; }
+  .track-lyrics.expanded { max-height: none; }
+  .track-lyrics-toggle { font-size: 0.72rem; color: var(--accent); cursor: pointer; margin-top: 4px; display: inline-block; }
+  .track-lyrics-toggle:hover { opacity: 0.7; }
+  .name-cn { font-size: 0.9rem; font-weight: 500; color: var(--text); }
+  .name-en { font-size: 0.72rem; color: var(--muted); margin-top: 1px; }
+  .play-btn { background: var(--accent); color: #fff; border: none; border-radius: 50%; width: 36px; height: 36px; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: opacity 0.2s; }
+  .play-btn:hover { opacity: 0.85; }
+  audio { width: 100%; height: 32px; }
+
+  /* ── Footer ── */
+  .footer { text-align: center; padding: 24px; font-size: 0.68rem; color: var(--muted); }
+
+  @media (max-width: 600px) {
+    .progress-hero { flex-direction: column; text-align: center; gap: 16px; }
+    .hero-stats { justify-content: center; }
+    .stat-row { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <span class="brand-icon">🧭</span>
+    <div>
+      <div class="brand-name">Mavis Dashboard</div>
+      <div class="brand-sub">刘斐 · 创作与研究</div>
+    </div>
+  </div>
+  <div class="update-label" id="update-time">更新于 2026-05-23 08:00</div>
+</header>
+
+<main>
+
+  <!-- ── Progress ── -->
+  <div class="sec">APOCALYPSE LORD · Book 2 深度改写</div>
+  <div class="progress-hero" data-progress="">
+    <div class="progress-ring">
+      <svg width="96" height="96" viewBox="0 0 96 96">
+        <circle class="bg" cx="48" cy="48" r="40"/>
+        <circle class="fill" cx="48" cy="48" r="40"
+          stroke-dasharray="251.327"
+          stroke-dashoffset="0.000"/>
+      </svg>
+      <div class="ring-center">
+        <div class="ring-pct">100.0%</div>
+        <div class="ring-lbl">完成</div>
+      </div>
+    </div>
+    <div class="hero-info">
+      <div class="hero-title">Book 2 深度改写</div>
+      <div class="hero-sub">目标 Ch003 – Ch302，共 300 章</div>
+      <div class="hero-stats">
+        <div class="hstat"><div class="n">490</div><div class="l">已完成</div></div>
+        <div class="hstat"><div class="n">0</div><div class="l">剩余</div></div>
+        <div class="hstat"><div class="n">—</div><div class="l">目标均分</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Today stats ── -->
+  <div class="sec" style="margin-top:24px">今日概览</div>
+  <div class="card">
+    <div class="card-title"><span class="card-icon">📊</span> 今日数据</div>
+    <div class="stat-row">
+      <div class="sbox"><div class="n indigo" id="stat-music">15</div><div class="l">音乐产出</div></div>
+      <div class="sbox"><div class="n green" id="stat-fav">4</div><div class="l">精选收录</div></div>
+      <div class="sbox"><div class="n amber" id="stat-token">89%</div><div class="l">Token已用</div></div>
+    </div>
+  </div>
+
+  <!-- ── Scheduled tasks ── -->
+  <div class="sec">定时任务</div>
+  <div class="card">
+    <div class="card-title"><span class="card-icon">⏰</span> 定时任务</div>
+    <div class="task-list">
+      <div class="task-item">
+        <div class="task-dot green"></div>
+        <div class="task-info">
+          <div class="task-name">hourly-music</div>
+          <div class="task-sched">每 30 分钟</div>
+        </div>
+        <div class="task-next" id="next-music">—</div>
+      </div>
+      <div class="task-item">
+        <div class="task-dot green"></div>
+        <div class="task-info">
+          <div class="task-name">hourly-stock-monitor</div>
+          <div class="task-sched">每整点</div>
+        </div>
+        <div class="task-next" id="next-stock">—</div>
+      </div>
+      <div class="task-item">
+        <div class="task-dot green"></div>
+        <div class="task-info">
+          <div class="task-name">novel-agent-watchdog</div>
+          <div class="task-sched">每小时</div>
+        </div>
+        <div class="task-next" id="next-watchdog">—</div>
+      </div>
+      <div class="task-item">
+        <div class="task-dot amber"></div>
+        <div class="task-info">
+          <div class="task-name">amazon-kindle-daily</div>
+          <div class="task-sched">每天 03:00</div>
+        </div>
+        <div class="task-next" id="next-kindle">明天 03:00</div>
+      </div>
+      <div class="task-item">
+        <div class="task-dot amber"></div>
+        <div class="task-info">
+          <div class="task-name">token-daily-report</div>
+          <div class="task-sched">每天 09:15</div>
+        </div>
+        <div class="task-next" id="next-token">今天 09:15</div>
+      </div>
+      <div class="task-item">
+        <div class="task-dot amber"></div>
+        <div class="task-info">
+          <div class="task-name">dashboard-refresh</div>
+          <div class="task-sched">每 30 分钟</div>
+        </div>
+        <div class="task-next" id="next-dashboard">—</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Token plan ── -->
+  <div class="sec">Token Plan · MiniMax</div>
+  <div class="card">
+    <div class="card-title"><span class="card-icon">💎</span> Token Plan 余额</div>
+    <div class="token-bars">
+      <div class="token-row">
+        <div class="token-label"><span>文本生成</span><span id="token-text-label">13336 / 15,000</span></div>
+        <div class="token-bar"><div class="token-fill red" id="token-text-bar" style="width:89%"></div></div>
+      </div>
+      <div class="token-row">
+        <div class="token-label"><span>音乐生成</span><span id="token-music-label">48 / 100</span></div>
+        <div class="token-bar"><div class="token-fill green" id="token-music-bar" style="width:48%"></div></div>
+      </div>
+      <div class="token-row">
+        <div class="token-label"><span>图像生成</span><span id="token-img-label">0 / 50</span></div>
+        <div class="token-bar"><div class="token-fill green" id="token-img-bar" style="width:0%"></div></div>
+      </div>
+      <div class="token-row">
+        <div class="token-label"><span>图片理解</span><span id="token-img-under-label">0 / 150</span></div>
+        <div class="token-bar"><div class="token-fill green" id="token-img-under-bar" style="width:0%"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Music player ── -->
+  <div class="sec" id="music-sec">🎵 灵感音乐 · 点击播放</div>
+  <div class="music-grid" id="music-grid">
+    <div class="track-card" id="music-loading">
+      <div class="track-name" style="color:var(--muted);text-align:center;padding:20px 0">加载中…</div>
+    </div>
+  </div>
+
+</main>
+
+<div class="footer">Mavis Dashboard · 每 30 分钟自动更新</div>
+
+<script>
+(function() {
+  // ── Helpers ──
+  function pad(n) { return String(n).padStart(2,'0'); }
+  function getNextHalfHour() {
+    var now = new Date(), diff = (30 - now.getMinutes()) * 60 - now.getSeconds();
+    if (diff <= 0) diff += 3600;
+    var h = Math.floor(diff / 3600), m = Math.floor((diff % 3600) / 60);
+    return pad(h) + 'h' + pad(m) + 'm';
+  }
+  function getNextHour() {
+    var now = new Date(), diff = 3600 - (now.getMinutes() * 60 + now.getSeconds()) % 3600;
+    var h = Math.floor(diff / 3600), m = Math.floor((diff % 3600) / 60);
+    return pad(h) + 'h' + pad(m) + 'm';
+  }
+  function getNextAt(h, m) {
+    var now = new Date(), n = new Date(now);
+    n.setHours(h, m, 0, 0);
+    if (n <= now) n.setDate(n.getDate() + 1);
+    var diff = Math.round((n - now) / 60000);
+    var h2 = Math.floor(diff / 60), m2 = diff % 60;
+    return pad(h2) + 'h' + pad(m2) + 'm';
+  }
+
+  // ── Music renderer ──
+  function renderMusic() {
+var grid = document.getElementById('music-grid');
+    var tracks = window.__MUSIC_DATA__;
+    if (!tracks || tracks.length === 0) {
+    grid.innerHTML = '<div class="track-card"><div class="track-name" style="color:var(--muted);text-align:center;padding:20px 0">暂无音乐数据</div></div>';
+      return;
+    }
+    var html = '';
+    for (var i = 0; i < tracks.length; i++) {
+      var t = tracks[i];
+      var cover = t.cover || '';
+      var audioTag = '<audio controls preload="none"><source src="' + t.url + '" type="audio/mpeg">您的浏览器不支持音频播放</audio>';
+      var lyricsHtml = '';
+      if (t.lyrics) {
+        var shortLyrics = t.lyrics.split('\n').slice(0, 6).join('\n');
+        var isLong = t.lyrics.split('\n').length > 6;
+        lyricsHtml = '<div class="track-lyrics' + (isLong ? '' : '') + '" id="lyrics-' + i + '">' + escHtml(shortLyrics) + (isLong ? '\n…' : '') + '</div>';
+        if (isLong) {
+          lyricsHtml += '<span class="track-lyrics-toggle" onclick="toggleLyrics(' + i + ')">展开全部 ▼</span>';
+        }
+      }
+      var coverImg = cover ? '<img class="track-cover" src="' + cover + '" alt="" style="width:52px;height:52px;border-radius:8px;object-fit:cover;flex-shrink:0;">' : '';
+      var infoHtml = '<div style="flex:1;min-width:0"><div class="name-cn">' + escHtml(t.name) + '</div>';
+      if (t.name_en) infoHtml += '<div class="name-en">' + escHtml(t.name_en) + '</div>';
+      infoHtml += '</div>';
+      var timeHtml = '<div class="track-time" style="flex-shrink:0">' + (t.time || '') + '</div>';
+      html += '<div class="track-card">' + coverImg + infoHtml + timeHtml + audioTag + '</div>';
+      // put lyrics below card
+      if (lyricsHtml) html += '<div style="margin-top:-2px;margin-bottom:10px;">' + lyricsHtml + '</div>';
+    }
+    grid.innerHTML = html;
+  }
+
+  function escHtml(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  window._lyricsData = [];
+  window.toggleLyrics = function(idx) {
+    var el = document.getElementById('lyrics-' + idx);
+    if (!el) return;
+    if (!window._lyricsData[idx]) window._lyricsData[idx] = el.textContent;
+    var full = window.__MUSIC_DATA__[idx].lyrics || '';
+    if (el.textContent === window._lyricsData[idx] + '\n…') {
+      el.textContent = full;
+      el.classList.add('expanded');
+      el.nextElementSibling.textContent = '收起 ▲';
+    } else {
+      var short = full.split('\n').slice(0, 6).join('\n') + '\n…';
+      el.textContent = short;
+      el.classList.remove('expanded');
+      el.nextElementSibling.textContent = '展开全部 ▼';
+    }
+  };
+
+  // ── Init timers ──
+  function init() {
+    document.getElementById('next-music').textContent = getNextHalfHour() + ' 后';
+    document.getElementById('next-stock').textContent = getNextHour() + ' 后';
+    document.getElementById('next-watchdog').textContent = getNextHour() + ' 后';
+    document.getElementById('next-dashboard').textContent = getNextHalfHour() + ' 后';
+
+    var now = new Date(), hour = now.getHours();
+    if (hour < 3) {
+      document.getElementById('next-kindle').textContent = '明天 03:00';
+      document.getElementById('next-token').textContent = '今天 09:15';
+    } else {
+      document.getElementById('next-kindle').textContent = '每天 03:00';
+      document.getElementById('next-token').textContent = '每天 09:15';
+    }
+    renderMusic();
+    // Fetch music data AFTER DOM ready, then call renderMusic again
+    fetch('music-data.json').then(function(r){return r.json();}).then(function(d){
+      window.__MUSIC_DATA__ = d;
+      console.log("fetch done, tracks:", window.__MUSIC_DATA__.length);
+      renderMusic();
+    }).catch(function(err){
+      console.error("fetch error:", err);
+    })
+  };
+  window.addEventListener('DOMContentLoaded', init);
+})();
+</script>
+</body>
+</html>
