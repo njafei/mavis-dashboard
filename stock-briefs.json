@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-25 16:44",
+  "updated": "2026-05-25 16:45",
   "briefs": [
     {
       "id": "2026-05-25_600015",
@@ -8,7 +8,7 @@
       "code": "600015",
       "score": 8.92,
       "signal": "值得关注",
-      "summary": "综合评分 8.92，基本面值得关注",
+      "summary": "| 市净率 PB | ~0.33 |",
       "detail_link": "https://raw.githubusercontent.com/njafei/stock-research/main/每小时股票监控/报告/20260525_600015_华夏银行.md"
     }
   ]
