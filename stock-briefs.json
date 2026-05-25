@@ -1,4 +1,15 @@
 {
   "updated": "2026-05-25 16:47",
-  "briefs": []
+  "briefs": [
+    {
+      "id": "2026-05-25_600015",
+      "time": "00:00",
+      "stock": "华夏银行",
+      "code": "600015",
+      "score": 6.49,
+      "signal": "暂不推荐",
+      "summary": "PE 3.87 倍 + PB 0.33 倍，严重低估，安全边际极高；5.74% 股息率，对长线资金（险资/社保/ETF）具吸引力；2025 年资产总额 +8.25%，贷款 +8.47%，规模增速领先同业",
+      "detail_link": "https://raw.githubusercontent.com/njafei/stock-research/main/每小时股票监控/报告/20260525_600015_华夏银行.md"
+    }
+  ]
 }
