@@ -134,35 +134,107 @@
 
   /* ── Stock briefs ── */
   .stock-brief-list { display: flex; flex-direction: column; gap: 8px; }
-  .sb-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; background: var(--bg); border-radius: 10px; }
-  .sb-score { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; flex-shrink: 0; }
+  .sb-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; background: var(--bg); border-radius: 10px; transition: box-shadow 0.15s; }
+  .sb-item:hover { box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
+  .sb-score { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.82rem; font-weight: 700; flex-shrink: 0; }
   .sb-score.high { background: var(--green); color: #fff; }
   .sb-score.mid { background: var(--amber); color: #fff; }
   .sb-score.low { background: var(--muted); color: #fff; }
-  .sb-info { flex: 1; min-width: 0; }
-  .sb-name { font-size: 0.8rem; font-weight: 600; color: var(--text); }
-  .sb-conclusion { font-size: 0.72rem; color: var(--muted); margin-top: 2px; line-height: 1.4; }
-  .sb-time { font-size: 0.65rem; color: var(--muted); flex-shrink: 0; }
-  .sb-signal { font-size: 0.65rem; font-weight: 500; padding: 2px 7px; border-radius: 10px; flex-shrink: 0; }
+  .sb-body { flex: 1; min-width: 0; }
+  .sb-name { font-size: 0.85rem; font-weight: 600; color: var(--text); }
+  .sb-code { font-size: 0.68rem; color: var(--muted); margin-left: 6px; font-weight: 400; }
+  .sb-summary { font-size: 0.72rem; color: #475569; margin-top: 3px; line-height: 1.5; }
+  .sb-actions { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0; }
+  .sb-time { font-size: 0.65rem; color: var(--muted); }
+  .sb-signal { font-size: 0.65rem; font-weight: 500; padding: 2px 8px; border-radius: 10px; }
   .sb-signal.good { background: #d1fae5; color: var(--green); }
   .sb-signal.warn { background: #fef3c7; color: var(--amber); }
+  .sb-detail-btn { font-size: 0.68rem; font-weight: 500; color: var(--accent); background: var(--accent-light); border: none; border-radius: 6px; padding: 3px 10px; cursor: pointer; transition: opacity 0.15s; white-space: nowrap; }
+  .sb-detail-btn:hover { opacity: 0.8; }
 
   /* ── Music player ── */
-  .music-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
-  .track-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; display: flex; flex-direction: column; gap: 10px; }
-  .track-cover { width: 100%; aspect-ratio: 1; border-radius: 8px; object-fit: cover; background: var(--bg); }
-  .track-name { font-size: 0.85rem; font-weight: 500; color: var(--text); line-height: 1.3; }
-  .track-time { font-size: 0.72rem; color: var(--muted); }
-  .track-play { display: flex; align-items: center; gap: 8px; }
-  .track-lyrics { font-size: 0.78rem; color: var(--muted); line-height: 1.7; background: var(--bg); border-radius: 8px; padding: 10px 12px; white-space: pre-wrap; max-height: 120px; overflow: hidden; position: relative; }
-  .track-lyrics.expanded { max-height: none; }
-  .track-lyrics-toggle { font-size: 0.72rem; color: var(--accent); cursor: pointer; margin-top: 4px; display: inline-block; }
-  .track-lyrics-toggle:hover { opacity: 0.7; }
-  .name-cn { font-size: 0.9rem; font-weight: 500; color: var(--text); }
+  .music-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+  .track-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s, transform 0.2s;
+    cursor: default;
+  }
+  .track-card:hover {
+    box-shadow: 0 6px 24px rgba(99,102,241,0.12);
+    transform: translateY(-2px);
+  }
+  .track-cover-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+  }
+  .track-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  /* Gradient placeholder per genre slot */
+  .track-cover.placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+  .track-cover.placeholder.g2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+  .track-cover.placeholder.g3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+  .track-cover.placeholder.g4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+  .track-cover.placeholder.g5 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+  .track-cover.placeholder.g6 { background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%); }
+  .track-play-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.35);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .track-cover-wrap:hover .track-play-overlay { opacity: 1; }
+  .play-btn {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(99,102,241,0.4);
+    transition: transform 0.15s;
+  }
+  .play-btn:hover { transform: scale(1.08); }
+  .play-btn.paused { background: rgba(99,102,241,0.85); }
+  .track-body { padding: 14px 16px 12px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+  .name-cn { font-size: 0.88rem; font-weight: 600; color: var(--text); line-height: 1.3; }
   .name-en { font-size: 0.72rem; color: var(--muted); margin-top: 1px; }
-  .play-btn { background: var(--accent); color: #fff; border: none; border-radius: 50%; width: 36px; height: 36px; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: opacity 0.2s; }
-  .play-btn:hover { opacity: 0.85; }
-  audio { width: 100%; height: 32px; }
+  .track-meta { font-size: 0.68rem; color: var(--muted); margin-top: 2px; }
+  .track-waveform {
+    width: 100%;
+    height: 36px;
+    background: var(--bg);
+    border-radius: 6px;
+    margin-top: 2px;
+  }
+  audio { width: 100%; height: 32px; margin-top: 4px; }
+  .track-lyrics { font-size: 0.72rem; color: #64748b; line-height: 1.75; background: #f8fafc; border-radius: 8px; padding: 10px 12px; white-space: pre-wrap; max-height: 80px; overflow: hidden; position: relative; margin-top: 4px; }
+  .track-lyrics.expanded { max-height: none; }
+  .track-lyrics-toggle { font-size: 0.68rem; color: var(--accent); cursor: pointer; margin-top: 3px; display: inline-block; }
+  .track-lyrics-toggle:hover { opacity: 0.7; }
 
   /* ── Footer ── */
   .footer { text-align: center; padding: 24px; font-size: 0.68rem; color: var(--muted); }
@@ -184,7 +256,7 @@
       <div class="brand-sub">刘斐 · 创作与研究</div>
     </div>
   </div>
-  <div class="update-label" id="update-time">更新于 2026-05-25 16:47</div>
+  <div class="update-label" id="update-time">更新于 2026-05-25 16:49</div>
 </header>
 
 <main>
@@ -353,38 +425,55 @@
     var html = '';
     for (var i = 0; i < tracks.length; i++) {
       var t = tracks[i];
-      var audioTag = '<audio controls preload="none"><source src="' + t.url + '" type="audio/mpeg">您的浏览器不支持音频播放</audio>';
+      var gradIdx = (i % 6) + 1;
+      var coverHtml = t.cover
+        ? '<img class="track-cover" src="' + escHtml(t.cover) + '" alt="cover" loading="lazy"/>'
+        : '<div class="track-cover placeholder g' + gradIdx + '"></div>';
+      var metaHtml = t.name_en
+        ? '<div class="name-en">' + escHtml(t.name_en) + '</div>'
+        : '';
       var lyricsHtml = '';
       if (t.lyrics && t.lyrics.trim()) {
-        lyricsHtml = '<div class="track-lyrics" id="lyrics-' + i + '">' + escHtml(t.lyrics.trim()) + '</div>';
+        var shortLyrics = t.lyrics.trim().split('\n').slice(0, 4).join('\n') + '\n…';
+        lyricsHtml = '<div class="track-lyrics" id="lyrics-' + i + '">' + escHtml(shortLyrics) + '</div>'
+          + '<div class="track-lyrics-toggle" onclick="toggleLyrics(' + i + ')">展开全部 ▼</div>';
       }
-      var infoHtml = '<div style="flex:1;min-width:0"><div class="name-cn">' + escHtml(t.name) + '</div>';
-      if (t.name_en) infoHtml += '<div class="name-en">' + escHtml(t.name_en) + '</div>';
-      infoHtml += '</div>';
-      var timeHtml = '<div class="track-time" style="flex-shrink:0">' + (t.time || '') + '</div>';
-      html += '<div class="track-card" style="display:flex;flex-direction:row;align-items:center;gap:12px;">'
-        + infoHtml + timeHtml
-        + '<button class="play-btn" onclick="togglePlay(this)" title="播放/暂停" style="margin-left:auto">▶</button>'
+      html += '<div class="track-card">'
+        + '<div class="track-cover-wrap">'
+        + coverHtml
+        + '<div class="track-play-overlay">'
+        + '<button class="play-btn paused" id="playbtn-' + i + '" onclick="togglePlay(' + i + ')" title="播放">▶</button>'
         + '</div>'
-        + '<div style="margin-bottom:10px;">' + audioTag + '</div>';
-      if (lyricsHtml) {
-        html += '<div style="margin-bottom:14px;">' + lyricsHtml + '</div>';
-      }
+        + '</div>'
+        + '<div class="track-body">'
+        + '<div class="name-cn">' + escHtml(t.name) + '</div>'
+        + metaHtml
+        + '<div class="track-meta">' + (t.time || '') + ' · 点击封面播放</div>'
+        + '<audio id="audio-' + i + '" preload="none"><source src="' + escHtml(t.url) + '" type="audio/mpeg">您的浏览器不支持音频播放</audio>'
+        + lyricsHtml
+        + '</div>'
+        + '</div>';
     }
     grid.innerHTML = html;
   }
 
-  window.togglePlay = function(btn) {
-    var audio = btn.closest('.track-card').nextElementSibling.querySelector('audio');
-    if (!audio) return;
+  window.togglePlay = function(idx) {
+    var audio = document.getElementById('audio-' + idx);
+    var btn = document.getElementById('playbtn-' + idx);
+    if (!audio || !btn) return;
     if (audio.paused) {
       document.querySelectorAll('audio').forEach(function(a){ a.pause(); });
-      document.querySelectorAll('.play-btn').forEach(function(b){ b.textContent = '▶'; });
+      document.querySelectorAll('.play-btn').forEach(function(b){
+        b.textContent = '▶';
+        b.classList.add('paused');
+      });
       audio.play();
       btn.textContent = '⏸';
+      btn.classList.remove('paused');
     } else {
       audio.pause();
       btn.textContent = '▶';
+      btn.classList.add('paused');
     }
   };
 
@@ -436,15 +525,17 @@
       var score = b.score || 0;
       var scoreClass = score >= 7.5 ? 'high' : (score >= 7 ? 'mid' : 'low');
       var signalClass = b.signal === '值得关注' ? 'good' : 'warn';
+      var link = escHtml(b.detail_link || '');
       html += '<div class="sb-item">'
         + '<div class="sb-score ' + scoreClass + '">' + score.toFixed(1) + '</div>'
-        + '<div class="sb-info">'
-        + '<div class="sb-name">' + escHtml(b.name) + ' (' + escHtml(b.code) + ')</div>'
-        + '<div class="sb-conclusion">' + escHtml(b.conclusion || '') + '</div>'
+        + '<div class="sb-body">'
+        + '<div class="sb-name">' + escHtml(b.stock || b.name || '') + ' <span class="sb-code">' + escHtml(b.code || '') + '</span></div>'
+        + '<div class="sb-summary">' + escHtml(b.summary || b.conclusion || '') + '</div>'
         + '</div>'
-        + '<div>'
+        + '<div class="sb-actions">'
         + '<div class="sb-signal ' + signalClass + '">' + escHtml(b.signal || '') + '</div>'
         + '<div class="sb-time">' + escHtml(b.time || '') + '</div>'
+        + (link ? '<button class="sb-detail-btn" onclick="window.open(\'' + link + '\')">查看详情 ↗</button>' : '')
         + '</div>'
         + '</div>';
     }
@@ -454,18 +545,19 @@
   window._lyricsData = [];
   window.toggleLyrics = function(idx) {
     var el = document.getElementById('lyrics-' + idx);
+    var btn = el && el.nextElementSibling;
     if (!el) return;
     if (!window._lyricsData[idx]) window._lyricsData[idx] = el.textContent;
     var full = window.__MUSIC_DATA__[idx].lyrics || '';
-    if (el.textContent === window._lyricsData[idx] + '\n…') {
-      el.textContent = full;
-      el.classList.add('expanded');
-      el.nextElementSibling.textContent = '收起 ▲';
-    } else {
-      var short = full.split('\n').slice(0, 6).join('\n') + '\n…';
+    if (el.classList.contains('expanded')) {
+      var short = full.split('\n').slice(0, 4).join('\n') + '\n…';
       el.textContent = short;
       el.classList.remove('expanded');
-      el.nextElementSibling.textContent = '展开全部 ▼';
+      if (btn) btn.textContent = '展开全部 ▼';
+    } else {
+      el.textContent = full;
+      el.classList.add('expanded');
+      if (btn) btn.textContent = '收起 ▲';
     }
   };
 
