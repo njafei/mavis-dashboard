@@ -1,21 +1,5 @@
 [
   {
-    "name": "氛围SunkenLament",
-    "name_en": "Ambient The Sunken Lament",
-    "url": "https://cdn.hailuoai.com/mcp/u483993072757477384/general/1779677680_e4cd6942.mp3",
-    "cover": "",
-    "time": "25:02",
-    "lyrics": "[纯音乐]\n"
-  },
-  {
-    "name": "Minimal氛围荒废Harbor",
-    "name_en": "MinimalAmbient TheAbandonedHarbor2",
-    "url": "https://cdn.hailuoai.com/mcp/u483993072757477384/general/1779677681_59f9e530.mp3",
-    "cover": "",
-    "time": "25:03",
-    "lyrics": "[纯音乐]\n\n\n[主歌1]\n\n穿过 the mist and 消逝 光芒,\nA harbor sleeps in endless 夜,\nNo lanterns glow upon the pier,\nJust whispers of what once was here.\n\n[副歌]\n\nSilent waves beneath the moon,\nA lullaby for ships that soon,\nWill 漂泊 to 沉睡 like all the rest,\nIn this harbour of quiet rest.\n\n[主歌2]\n\nThe lighthouse stands but casts no beam,\nA guardian of a forgotten dream,\nIts 光芒 extinguished long ago,\nYet still it watches, still it knows.\n\n[副歌]\n\nSilent waves beneath the moon,\nA lullaby for ships that soon,\nWill 漂泊 to 沉睡 like all the rest,\nIn this harbour of quiet rest."
-  },
-  {
     "name": "氛围SilentDepths",
     "name_en": "Ambient Silent Depths",
     "url": "https://cdn.hailuoai.com/mcp/u483993072757477384/general/1779677685_40fdb55d.mp3",
@@ -190,5 +174,21 @@
     "cover": "",
     "time": "25:26",
     "lyrics": "[主歌1]\n\n一片枫叶从书页间飘落\n像是秋天写给我的信\n窗外的光染成琥珀色\n咖啡杯旁，时间静静流过\n\n[副歌]\n\n午后的风翻动泛黄的书页\n那些字句在光里轻轻呼吸\n我读着别人的故事\n却看见自己的影子\n\n[主歌2]\n\n旧唱片在角落慢慢转动\n旋律像枫叶旋转落下\n咖啡馆的木桌留下痕迹\n每一道划痕都是一段回忆\n\n[副歌]\n\n午后的风翻动泛黄的书页\n那些字句在光里轻轻呼吸\n我读着别人的故事\n却看见自己的影子\n\n[桥段]\n\n枫叶书签夹在哪一章\n是结局，还是新的开始\n窗外的枫树还在等\n等下一阵风，再寄一片\n\n[尾声]\n\n合上书，枫叶滑落掌心\n秋天的温度刚刚好"
+  },
+  {
+    "name": "原声枫叶与风声",
+    "name_en": "Acoustic 枫叶与风声",
+    "url": "https://cdn.hailuoai.com/mcp/anon/general/1779690989_4b358e1f.bin",
+    "cover": "",
+    "time": "25:27",
+    "lyrics": "【Verse 1】\n午后的阳光洒在老路上\n枫叶轻轻落在我肩上\n吉他声穿过秋天的风\n想起那年我们走过的巷\n\n【Chorus】\n枫叶红了又落 落在心里头\n这条路走到尽头 还不肯回头\n老唱片转啊转 转不回那时候\n只有这风声 陪我慢慢走\n\n【Verse 2】\n吉他弦上留着旧时光\n枫叶铺成金黄的地毯\n阳光斜斜照进小窗\n你的笑容还在我心上\n\n【Chorus】\n枫叶红了又落 落在心里头\n这条路走到尽头 还不肯回头\n老唱片转啊转 转不回那时候\n只有这风声 陪我慢慢走\n\n【Bridge】\n走过秋天的田野\n风里带着麦香\n那一年你说过\n要一起去看夕阳\n\n【Final Chorus】\n枫叶红了又落 落在心里头\n这条路走到尽头 还不肯回头\n老唱片转啊转 转不回那时候\n只有这风声 陪我慢慢走"
+  },
+  {
+    "name": "Folk旧时光",
+    "name_en": "Folk 旧时光",
+    "url": "https://cdn.hailuoai.com/mcp/anon/general/1779690994_49c915e6.bin",
+    "cover": "",
+    "time": "25:28",
+    "lyrics": "Verse 1:\n阳光穿过老树梢\n斑驳的光影在摇\n门前石板路还留着\n那年我们跑过的脚印\n\nChorus:\n旧时光慢慢流\n像门前那条小河\n你说别走太快啊\n等风再吹一会儿\n\nVerse 2:\n墙角的木吉他\n还弹得出那首歌\n收音机里的旋律\n陪着我们过整个夏\n\nChorus:\n旧时光慢慢流\n像门前那条小河\n你说别走太快啊\n等风再吹一会儿\n\nOutro:\n旧时光……慢慢流……"
   }
 ]
