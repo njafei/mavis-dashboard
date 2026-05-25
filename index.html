@@ -385,7 +385,7 @@ var grid = document.getElementById('music-grid');
     }
     renderMusic();
     // Fetch music data AFTER DOM ready, then call renderMusic again
-    fetch('music-data.json').then(function(r){return r.json();}).then(function(d){
+    fetch('music-data.json?v=' + Date.now(), {cache: 'no-store'}).then(function(r){return r.json();}).then(function(d){
       window.__MUSIC_DATA__ = d;
       console.log("fetch done, tracks:", window.__MUSIC_DATA__.length);
       renderMusic();
