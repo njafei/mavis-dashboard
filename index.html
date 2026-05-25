@@ -202,6 +202,8 @@
     transition: opacity 0.2s;
   }
   .track-cover-wrap:hover .track-play-overlay { opacity: 1; }
+  .cover-link, .name-link { text-decoration: none; color: inherit; display: block; }
+  .name-link.name-cn { font-size: 1rem; font-weight: 600; color: var(--text); }
   .play-btn {
     background: var(--accent);
     color: #fff;
@@ -429,11 +431,13 @@
     for (var i = 0; i < tracks.length; i++) {
       var t = tracks[i];
       var gradIdx = (i % 6) + 1;
+      var pageLink = t.page_url || '#';
       var coverHtml = t.cover
         ? '<img class="track-cover" src="' + escHtml(t.cover) + '" alt="cover" loading="lazy"/>'
         : '<div class="track-cover placeholder g' + gradIdx + '"></div>';
+      coverHtml = '<a href="' + escHtml(pageLink) + '" target="_blank" class="cover-link" onclick="event.stopPropagation()">' + coverHtml + '</a>';
       var metaHtml = t.name_en
-        ? '<div class="name-en">' + escHtml(t.name_en) + '</div>'
+        ? '<a href="' + escHtml(pageLink) + '" target="_blank" class="name-link">' + escHtml(t.name_en) + '</a>'
         : '';
       var lyricsHtml = '';
       if (t.lyrics && t.lyrics.trim()) {
@@ -452,9 +456,9 @@
         + '</div>'
         + '</div>'
         + '<div class="track-body">'
-        + '<div class="name-cn">' + escHtml(t.name) + '</div>'
+        + '<a href="' + escHtml(pageLink) + '" target="_blank" class="name-link name-cn">' + escHtml(t.name) + '</a>'
         + metaHtml
-        + '<div class="track-meta">' + (t.time || '') + ' · 点击封面播放</div>'
+        + '<div class="track-meta">' + (t.time || '') + ' · 点击封面查看详情</div>'
         + '<audio id="audio-' + i + '" preload="none"><source src="' + escHtml(t.url) + '" type="audio/mpeg">您的浏览器不支持音频播放</audio>'
         + lyricsHtml
         + '<div class="track-actions">' + shareBtn + '</div>'
