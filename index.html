@@ -235,6 +235,9 @@
   .track-lyrics.expanded { max-height: none; }
   .track-lyrics-toggle { font-size: 0.68rem; color: var(--accent); cursor: pointer; margin-top: 3px; display: inline-block; }
   .track-lyrics-toggle:hover { opacity: 0.7; }
+  .track-actions { display: flex; gap: 8px; margin-top: 6px; align-items: center; }
+  .share-btn { font-size: 0.7rem; color: var(--muted); background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.2); border-radius: 4px; padding: 2px 8px; cursor: pointer; transition: all 0.2s; }
+  .share-btn:hover { color: var(--accent); background: rgba(99,102,241,0.15); border-color: rgba(99,102,241,0.4); }
 
   /* ── Footer ── */
   .footer { text-align: center; padding: 24px; font-size: 0.68rem; color: var(--muted); }
@@ -438,6 +441,9 @@
         lyricsHtml = '<div class="track-lyrics" id="lyrics-' + i + '">' + escHtml(shortLyrics) + '</div>'
           + '<div class="track-lyrics-toggle" onclick="toggleLyrics(' + i + ')">展开全部 ▼</div>';
       }
+      var shareBtn = t.page_url
+        ? '<button class="share-btn" onclick="copyShare(\'' + escHtml(t.page_url) + '\')" title="分享链接">分享</button>'
+        : '';
       html += '<div class="track-card">'
         + '<div class="track-cover-wrap">'
         + coverHtml
@@ -451,6 +457,7 @@
         + '<div class="track-meta">' + (t.time || '') + ' · 点击封面播放</div>'
         + '<audio id="audio-' + i + '" preload="none"><source src="' + escHtml(t.url) + '" type="audio/mpeg">您的浏览器不支持音频播放</audio>'
         + lyricsHtml
+        + '<div class="track-actions">' + shareBtn + '</div>'
         + '</div>'
         + '</div>';
     }
@@ -475,6 +482,20 @@
       btn.textContent = '▶';
       btn.classList.add('paused');
     }
+  };
+
+  window.copyShare = function(url) {
+    var ta = document.createElement('textarea');
+    ta.value = url;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    var btn = event.target;
+    var orig = btn.textContent;
+    btn.textContent = '已复制';
+    btn.style.color = 'var(--accent)';
+    setTimeout(function() { btn.textContent = orig; btn.style.color = ''; }, 1200);
   };
 
   function escHtml(s) {
