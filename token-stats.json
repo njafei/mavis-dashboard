@@ -1,0 +1,30 @@
+{
+  "updated": "2026-05-25 14:54",
+  "period": "今日",
+  "categories": [
+    {
+      "name": "音乐生成",
+      "runs": 3,
+      "calls": 90,
+      "pct": 34.5
+    },
+    {
+      "name": "股票研究",
+      "runs": 5,
+      "calls": 75,
+      "pct": 28.7
+    },
+    {
+      "name": "其他",
+      "runs": 10,
+      "calls": 50,
+      "pct": 19.2
+    },
+    {
+      "name": "绘本创作",
+      "runs": 1,
+      "calls": 46,
+      "pct": 17.6
+    }
+  ]
+}
