@@ -1,37 +1,5 @@
 [
   {
-    "name": "氛围SilentDepths",
-    "name_en": "Ambient Silent Depths",
-    "url": "https://cdn.hailuoai.com/mcp/u483993072757477384/general/1779677685_40fdb55d.mp3",
-    "cover": "",
-    "time": "25:04",
-    "lyrics": "[主歌1]\n\nThe 潮汐 pulls back, the streets are still\nNo footprints mark the passing chill\nIn harbors deep where 寂静 降临\nThe moon hangs low behind the 城墙\n\n[副歌]\n\nSilent depths beneath the skin\nWhere broken tides begin again\nWe 漂泊 alone 穿过 empty space\nAnd find the 光芒 in hollowing\n\n[主歌2]\n\nThe ocean hums a low monotone\nA distant star, a broken stone\nWhat whispers 穿过 the empty air\nAre echoes only 夜 can share\n\n[副歌]\n\nSilent depths beneath the skin\nWhere broken tides begin again\nWe 漂泊 alone 穿过 empty space\nAnd find the 光芒 in hollowing\n\n[桥段]\n\nAnd in the hush 之间 each wave\nWe sink beneath what we can't save\nBut in the depth, the current turns\nAnd somewhere distant, something burns\n\n[副歌]\n\nSilent depths beneath the skin\nWhere broken tides begin again\nWe 漂泊 alone 穿过 empty space\nAnd find the 光芒 in hollowing"
-  },
-  {
-    "name": "氛围FathomlessTide",
-    "name_en": "Ambient FathomlessTide",
-    "url": "https://cdn.hailuoai.com/mcp/u483993072757477384/general/1779677688_440a4f83.mp3",
-    "cover": "",
-    "time": "25:07",
-    "lyrics": "[主歌1]\n\nBeneath the surface deep and wide,\nwhere 寂静 folds like ocean 潮汐,\nI 漂泊 穿过 corridors of thought,\nwhere faded memories are brought.\n\n[副歌]\n\nFathomless 潮汐, it pulls me in,\n穿过 corridors where 光芒 grows thin,\nthe weight of worlds I cannot hold,\nstill stories left for those untold.\n\n[主歌2]\n\nThe current carries what remains,\nof fragments lost in endless trains,\n穿过 hollow halls I make my way,\nto find the end of yesterday.\n\n[副歌]\n\nFathomless 潮汐, it pulls me in,\n穿过 corridors where 光芒 grows thin,\nthe weight of worlds I cannot hold,\nstill stories left for those untold.\n\n[尾声]\n\nFathomless 潮汐"
-  },
-  {
-    "name": "梦幻Cosmic漂流",
-    "name_en": "Dreamy Cosmic Drift",
-    "url": "https://cdn.hailuoai.com/mcp/u483993072757477384/general/1779677690_c4e5c8b0.mp3",
-    "cover": "",
-    "time": "25:07",
-    "lyrics": "[主歌1]\n\n星辰 are falling 穿过 the 夜\nSilent rivers guide the 光芒\nIn the hollow of the 天空\nWhere the wandering souls cry\n\n[副歌]\n\nDreaming in the cosmic sea\n漂浮 weightlessly\n穿过 the 裂缝 of 宇宙\nWe were never meant to be found\n\n[主歌2]\n\nMoonlit shadows 漂泊 apart\nEchoes fade from every heart\nIn the 寂静 deep below\nAll the 银色 rivers flow\n\n[副歌]\n\nDreaming in the cosmic sea\n漂浮 weightlessly\n穿过 the 裂缝 of 宇宙\nWe were never meant to be found"
-  },
-  {
-    "name": "空灵Fadinginto黎明",
-    "name_en": "Ethereal Fading into Dawn",
-    "url": "https://cdn.hailuoai.com/mcp/u483993072757477384/general/1779677695_76b1e825.mp3",
-    "cover": "",
-    "time": "25:08",
-    "lyrics": "[主歌1]\n\nFog drapes the sleeping city streets,\n星辰 fade where 寂静 相遇,\nA broken world beneath the moon,\nWaiting for the 光芒 to bloom.\n\n[副歌]\n\n消逝 into 黎明, the dream's 边缘 line,\n之间 the dark and the first sign,\nWhispers carry 穿过 the haze,\nAs 夜 消融 in pale gold rays.\n\n[主歌2]\n\nGhosts of 星辰 still cling to 天空,\nThe soul drifts where worlds collide,\nOn the border of 沉睡 and wake,\nA breath of hope the 寂静 took.\n\n[副歌]\n\n消逝 into 黎明, the dream's 边缘 line,\n之间 the dark and the first sign,\nWhispers carry 穿过 the haze,\nAs 夜 消融 in pale gold rays.\n\n[桥段]\n\nThen 光芒 breaks 穿过 the 裂缝 of dream,\nA warmth that makes the 暗影 gleam.\n\n[副歌]\n\n消逝 into 黎明, the dream's 边缘 line,\n之间 the dark and the first sign,\nWhispers carry 穿过 the haze,\nAs 黎明 becomes the final phrase."
-  },
-  {
     "name": "梦幻低语Before黎明",
     "name_en": "Dreamy Whispers Before Dawn",
     "url": "https://cdn.hailuoai.com/mcp/u483993072757477384/general/1779677697_2422d3e6.mp3",
@@ -190,5 +158,37 @@
     "cover": "",
     "time": "25:28",
     "lyrics": "Verse 1:\n阳光穿过老树梢\n斑驳的光影在摇\n门前石板路还留着\n那年我们跑过的脚印\n\nChorus:\n旧时光慢慢流\n像门前那条小河\n你说别走太快啊\n等风再吹一会儿\n\nVerse 2:\n墙角的木吉他\n还弹得出那首歌\n收音机里的旋律\n陪着我们过整个夏\n\nChorus:\n旧时光慢慢流\n像门前那条小河\n你说别走太快啊\n等风再吹一会儿\n\nOutro:\n旧时光……慢慢流……"
+  },
+  {
+    "name": "原声午后暖阳",
+    "name_en": "Acoustic 午后暖阳",
+    "url": "https://cdn.hailuoai.com/mcp/anon/general/1779698573_21b9b805.bin",
+    "cover": "",
+    "time": "25:29",
+    "lyrics": "Instrumental (纯音乐，无歌词)"
+  },
+  {
+    "name": "原声秋日的书签",
+    "name_en": "Acoustic 秋日的书签",
+    "url": "https://cdn.hailuoai.com/mcp/anon/general/1779698577_294c90d3.bin",
+    "cover": "",
+    "time": "25:30",
+    "lyrics": "【Verse 1】\n午后的阳光 落在旧书页\n窗台上书签 夹着谁的心愿\n茶杯里的光 轻轻摇晃\n这一刻安静 胜过千言\n\n【Pre-Chorus】\n风从很远的地方吹来\n翻过山和海 只为这一刻\n\n【Chorus】\n秋日的午后 小小的书签\n记不住故事 却记住了那年\n风穿过树梢 光落在指尖\n这一秒停留 就是永远\n\n【Verse 2】\n老唱片的歌 放着慢慢转\n旧皮沙发上 猫在打瞌睡\n时间好像 故意放慢了脚步\n让所有的暖 都能被记住\n\n【Pre-Chorus】\n风从很远的地方吹来\n翻过山和海 只为这一刻\n\n【Chorus】\n秋日的书签 小小的书签\n记不住故事 却记住了那年\n风穿过树梢 光落在指尖\n这一秒停留 就是永远\n\n【Outro】\n书签还留在 那年的那页\n阳光还暖着 那年那一天"
+  },
+  {
+    "name": "Folk秋天的歌",
+    "name_en": "Folk 秋天的歌",
+    "url": "https://cdn.hailuoai.com/mcp/anon/general/1779698581_ac787b8c.bin",
+    "cover": "",
+    "time": "25:31",
+    "lyrics": "[主歌1]\n\n枫叶落满石板路\n夕阳染红旧瓦屋\n风穿过麦田的尾巴\n带走一夏的温度\n\n[副歌]\n\n秋天它悄悄来过\n留下一地金黄的歌\n老槐树下讲故事的人\n把岁月酿成了酒喝\n\n[主歌2]\n\n烟囱升起白炊烟\n村口老狗晒着懒\n远山一层淡一层淡蓝\n画框里谁舍不得收\n\n[副歌]\n\n秋天它悄悄来过\n留下一地金黄的歌\n田埂尽头有人在等\n等归来的那个人\n\n[尾声]\n\n秋天它悄悄来过\n留下一地金黄的歌"
+  },
+  {
+    "name": "原声枫叶落满小径",
+    "name_en": "Acoustic 枫叶落满小径",
+    "url": "https://cdn.hailuoai.com/mcp/anon/general/1779698586_72adeb67.bin",
+    "cover": "",
+    "time": "25:32",
+    "lyrics": "[主歌1]\n\n枫叶落满小径的石板\n秋风轻拂着远处的山\n老式吉他声在午后的阳光里\n像记忆里那首未完的歌\n\n[副歌]\n\n走过那条铺满落叶的路\n阳光把影子拉得很长\n每一阵风都带着思念的温度\n你在路的尽头等我吗\n\n[主歌2]\n\n午后的咖啡香气渐渐散去\n窗外的云朵慢悠悠地飘\n我把时间折成一张小小的纸\n放进那年秋天的口袋里\n\n[副歌]\n\n走过那条铺满落叶的路\n阳光把影子拉得很长\n每一阵风都带着思念的温度\n你在路的尽头等我吗\n\n[尾声]\n\n枫叶一片一片落下\n时间一点一点流淌\n直到所有的路都连成一条\n回到我们出发的地方"
   }
 ]
