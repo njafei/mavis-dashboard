@@ -1,30 +1,30 @@
 {
-  "updated": "2026-05-25 18:47",
+  "updated": "2026-05-26 10:00",
   "period": "今日",
   "categories": [
     {
       "name": "股票研究",
-      "runs": 8,
-      "calls": 120,
-      "pct": 41.2
+      "runs": 11,
+      "calls": 165,
+      "pct": 53.9
     },
     {
       "name": "音乐生成",
       "runs": 3,
       "calls": 90,
-      "pct": 30.9
+      "pct": 29.4
     },
     {
       "name": "绘本创作",
       "runs": 1,
       "calls": 46,
-      "pct": 15.8
+      "pct": 15
     },
     {
       "name": "其他",
-      "runs": 7,
-      "calls": 35,
-      "pct": 12
+      "runs": 1,
+      "calls": 5,
+      "pct": 1.6
     }
   ]
 }
