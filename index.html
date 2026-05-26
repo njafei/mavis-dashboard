@@ -261,7 +261,7 @@
       <div class="brand-sub">刘斐 · 创作与研究</div>
     </div>
   </div>
-  <div class="update-label" id="update-time">更新于 2026-05-26 22:37</div>
+  <div class="update-label" id="update-time">更新于 2026-05-26 22:44</div>
 </header>
 
 <main>
@@ -359,27 +359,10 @@
     </div>
   </div>
 
-  <!-- ── Token category ── -->
-  <div class="sec">📊 Token 消耗分类</div>
-  <div class="card">
-    <div class="card-title"><span class="card-icon">📊</span> Token 消耗估算</div>
-    <div class="tcat-tabs">
-      <div class="tcat-tab active" id="tcat-tab-today" onclick="switchTcatTab('today')">今日</div>
-      <div class="tcat-tab" id="tcat-tab-week" onclick="switchTcatTab('week')">本周</div>
-    </div>
-    <div class="tcat-panel active" id="tcat-panel-today">
-      <div class="tcat-list" id="tcat-list-today">加载中...</div>
-    </div>
-    <div class="tcat-panel" id="tcat-panel-week">
-      <div class="tcat-list" id="tcat-list-week">加载中...</div>
-    </div>
-    <div class="tcat-note">基于 cron 运行次数估算 · 每30分钟自动更新</div>
-  </div>
-
   <!-- ── Stock briefs ── -->
   <div class="sec">📈 股票分析简报</div>
   <div class="card">
-    <div class="card-title"><span class="card-icon">📈</span> 今日关注标的（评分≥7）</div>
+    <div class="card-title"><span class="card-icon">📈</span> 24小时内全部股票</div>
     <div class="stock-brief-list" id="stock-brief-list">加载中...</div>
   </div>
 
@@ -548,13 +531,16 @@
     for (var i = 0; i < data.briefs.length; i++) {
       var b = data.briefs[i];
       var score = b.score || 0;
-      var scoreClass = score >= 7.5 ? 'high' : (score >= 7 ? 'mid' : 'low');
+      var scoreClass = score >= 7.5 ? 'high' : (score >= 6.5 ? 'mid' : 'low');
       var signalClass = b.signal === '值得关注' ? 'good' : 'warn';
       var link = escHtml(b.detail_link || '');
+      var peStr = b.pe ? 'PE ' + b.pe + '倍' : '';
+      var divStr = b.dividend ? ' 股息' + b.dividend : '';
       html += '<div class="sb-item">'
         + '<div class="sb-score ' + scoreClass + '">' + score.toFixed(1) + '</div>'
         + '<div class="sb-body">'
-        + '<div class="sb-name">' + escHtml(b.stock || b.name || '') + ' <span class="sb-code">' + escHtml(b.code || '') + '</span></div>'
+        + '<div class="sb-name">' + escHtml(b.stock || b.name || '') + ' <span class="sb-code">' + escHtml(b.code || '') + '</span>'
+        + (peStr || divStr ? '<span class="sb-metrics">' + peStr + (peStr && divStr ? ' · ' : '') + divStr + '</span>' : '') + '</div>'
         + '<div class="sb-summary">' + escHtml(b.summary || b.conclusion || '') + '</div>'
         + '</div>'
         + '<div class="sb-actions">'
@@ -609,17 +595,6 @@
       renderMusic();
     }).catch(function(err){
       console.error("fetch error:", err);
-    });
-    // Fetch token category stats (today + weekly)
-    fetch('token-stats.json?v=' + Date.now(), {cache: 'no-store'}).then(function(r){return r.json();}).then(function(d){
-      renderTokenCats(d, 'today');
-    }).catch(function(){
-      document.getElementById('tcat-list-today').innerHTML = '<div style="font-size:0.78rem;color:var(--muted)">暂无数据</div>';
-    });
-    fetch('token-stats-weekly.json?v=' + Date.now(), {cache: 'no-store'}).then(function(r){return r.json();}).then(function(d){
-      renderTokenCats(d, 'week');
-    }).catch(function(){
-      document.getElementById('tcat-list-week').innerHTML = '<div style="font-size:0.78rem;color:var(--muted)">暂无数据</div>';
     });
     // Fetch stock briefs
     fetch('stock-briefs.json?v=' + Date.now(), {cache: 'no-store'}).then(function(r){return r.json();}).then(function(d){
