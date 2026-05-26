@@ -1,6 +1,19 @@
 {
-  "updated": "2026-05-26 22:47",
+  "updated": "2026-05-26 23:37",
   "briefs": [
+    {
+      "id": "2026-05-26_06690",
+      "time": "00:00",
+      "stock": "海尔智家",
+      "code": "06690",
+      "score": 0.0,
+      "signal": "暂不推荐",
+      "pe": "11",
+      "dividend": null,
+      "is_opportunity": false,
+      "summary": "**评级：** ★★★☆ 值得关注（7.05/10）",
+      "detail_link": "https://raw.githubusercontent.com/njafei/stock-research/main/每小时股票监控/报告/20260526_06690_海尔智家.md"
+    },
     {
       "id": "2026-05-25_002948",
       "time": "05-25",
