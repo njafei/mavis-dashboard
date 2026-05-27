@@ -132,7 +132,20 @@
   .tcat-count { width: 68px; color: var(--muted); font-size: 0.7rem; }
   .tcat-note { font-size: 0.65rem; color: var(--muted); margin-top: 10px; }
 
-
+  /* ── Stock briefs ── */
+  .stock-brief-list { display: flex; flex-direction: column; gap: 8px; }
+  .sb-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; background: var(--bg); border-radius: 10px; }
+  .sb-score { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; flex-shrink: 0; }
+  .sb-score.high { background: var(--green); color: #fff; }
+  .sb-score.mid { background: var(--amber); color: #fff; }
+  .sb-score.low { background: var(--muted); color: #fff; }
+  .sb-info { flex: 1; min-width: 0; }
+  .sb-name { font-size: 0.8rem; font-weight: 600; color: var(--text); }
+  .sb-conclusion { font-size: 0.72rem; color: var(--muted); margin-top: 2px; line-height: 1.4; }
+  .sb-time { font-size: 0.65rem; color: var(--muted); flex-shrink: 0; }
+  .sb-signal { font-size: 0.65rem; font-weight: 500; padding: 2px 7px; border-radius: 10px; flex-shrink: 0; }
+  .sb-signal.good { background: #d1fae5; color: var(--green); }
+  .sb-signal.warn { background: #fef3c7; color: var(--amber); }
 
   /* ── Music player ── */
   .music-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
@@ -164,12 +177,10 @@
   .share-btn:hover { opacity: 0.8; }
   audio { width: 100%; height: 32px; }
 
-  /* ── Book cards ── */
-  .book-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
-  .book-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; display: block; }
-  .book-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-  .book-cover { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; background: var(--bg); }
-  .book-title { font-size: 0.75rem; font-weight: 500; color: var(--text); padding: 10px 12px 12px; line-height: 1.3; }
+  /* ── Book grid ── */
+  .book-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+  .book-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px; text-align: center; }
+  .book-card img { width: 100%; border-radius: 4px; }
 
   /* ── Footer ── */
   .footer { text-align: center; padding: 24px; font-size: 0.68rem; color: var(--muted); }
@@ -191,7 +202,7 @@
       <div class="brand-sub">刘斐 · 创作与研究</div>
     </div>
   </div>
-  <div class="update-label" id="update-time">更新于 2026-05-27 15:43</div><div id="live-clock"><script>document.getElementById('live-clock').textContent = new Date().toLocaleString('zh-CN',{year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'})</script></div>
+  <div class="update-label" id="update-time">更新于 2026-05-27 15:08</div><div id="live-clock"><script>document.getElementById('live-clock').textContent = new Date().toLocaleString('zh-CN',{year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'})</script></div>
 </header>
 
 <main>
@@ -227,7 +238,7 @@
   <div class="card">
     <div class="card-title"><span class="card-icon">📊</span> 今日数据</div>
     <div class="stat-row">
-      <div class="sbox"><div class="n indigo" id="stat-music">34</div><div class="l">音乐产出</div></div>
+      <div class="sbox"><div class="n indigo" id="stat-music">33</div><div class="l">音乐产出</div></div>
       <div class="sbox"><div class="n green" id="stat-fav">0</div><div class="l">精选收录</div></div>
       <div class="sbox"><div class="n amber" id="stat-token">4%</div><div class="l">Token已用</div></div>
     </div>
@@ -306,9 +317,21 @@
     <div class="tcat-note">基于 cron 运行次数估算 · 每30分钟自动更新</div>
   </div>
 
+  <!-- ── Stock briefs ── -->
+  <div class="sec">📈 股票分析简报</div>
+  <div class="card">
+    <div class="card-title"><span class="card-icon">📈</span> 今日关注标的（评分≥7）</div>
+    <div class="stock-brief-list" id="stock-brief-list">加载中...</div>
+  </div>
 
+  <!-- ── Music player ── -->
+  <div class="sec" id="music-sec">🎵 灵感音乐 · 点击播放</div>
+  <div class="music-grid" id="music-grid">
+    <div class="track-card" id="music-loading">
+      <div class="track-name" style="color:var(--muted);text-align:center;padding:20px 0">加载中…</div>
+    </div>
+  </div>
 
-  <!-- ── Picture books ── -->
   <div class="sec" id="books-sec">📚 灵感绘本</div>
   <div class="book-grid" id="book-grid"></div>
 
@@ -511,6 +534,31 @@
 
   // ── Render stock briefs ──
   function renderStockBriefs(data) {
+    var el = document.getElementById('stock-brief-list');
+    if (!data || !data.briefs || data.briefs.length === 0) {
+      el.innerHTML = '<div style="font-size:0.78rem;color:var(--muted)">暂无数据 · 每小时自动更新</div>';
+      return;
+    }
+    var html = '';
+    for (var i = 0; i < data.briefs.length; i++) {
+      var b = data.briefs[i];
+      var score = b.score || 0;
+      var scoreClass = score >= 7.5 ? 'high' : (score >= 7 ? 'mid' : 'low');
+      var signalClass = b.signal === '值得关注' ? 'good' : 'warn';
+      html += '<div class="sb-item">'
+        + '<div class="sb-score ' + scoreClass + '">' + score.toFixed(1) + '</div>'
+        + '<div class="sb-info">'
+        + '<div class="sb-name">' + escHtml(b.name) + ' (' + escHtml(b.code) + ')</div>'
+        + '<div class="sb-conclusion">' + escHtml(b.conclusion || '') + '</div>'
+        + '</div>'
+        + '<div>'
+        + '<div class="sb-signal ' + signalClass + '">' + escHtml(b.signal || '') + '</div>'
+        + '<div class="sb-time">' + escHtml(b.time || '') + '</div>'
+        + '</div>'
+        + '</div>';
+    }
+    el.innerHTML = html;
+  }
 
   window._lyricsData = [];
   window.toggleLyrics = function(idx) {
@@ -529,29 +577,6 @@
       el.nextElementSibling.textContent = '展开全部 ▼';
     }
   };
-
-  // ── Render book cards ──
-  function renderBooks(data) {
-    var el = document.getElementById('book-grid');
-    if (!data || !data.books || data.books.length === 0) {
-      el.innerHTML = '<div style="font-size:0.78rem;color:var(--muted)">暂无绘本数据</div>';
-      return;
-    }
-    var html = '';
-    for (var i = 0; i < data.books.length; i++) {
-      var b = data.books[i];
-      var coverSrc = b.cover || '';
-      var pdfHref = b.pdf || '#';
-      var coverImg = coverSrc
-        ? '<img class="book-cover" src="' + escHtml(coverSrc) + '" alt="' + escHtml(b.titleShort) + '" onerror="this.style.display=\'none\'">'
-        : '<div class="book-cover" style="display:flex;align-items:center;justify-content:center;font-size:2rem;background:var(--accent-light);color:var(--accent);">📖</div>';
-      html += '<a class="book-card" href="' + escHtml(pdfHref) + '" target="_blank">'
-        + coverImg
-        + '<div class="book-title">' + escHtml(b.titleShort) + '</div>'
-        + '</a>';
-    }
-    el.innerHTML = html;
-  }
 
   // ── Init timers ──
   function init() {
@@ -588,13 +613,12 @@
     }).catch(function(){
       document.getElementById('tcat-list-week').innerHTML = '<div style="font-size:0.78rem;color:var(--muted)">暂无数据</div>';
     });
-    // Fetch picture books
-    fetch('books-data.json?v=' + Date.now(), {cache: 'no-store'}).then(function(r){return r.json();}).then(function(d){
-      renderBooks(d);
+    // Fetch stock briefs
+    fetch('stock-briefs.json?v=' + Date.now(), {cache: 'no-store'}).then(function(r){return r.json();}).then(function(d){
+      renderStockBriefs(d);
     }).catch(function(){
-      document.getElementById('book-grid').innerHTML = '<div style="font-size:0.78rem;color:var(--muted)">暂无绘本数据</div>';
+      document.getElementById('stock-brief-list').innerHTML = '<div style="font-size:0.78rem;color:var(--muted)">暂无数据</div>';
     });
-
   };
   window.addEventListener('DOMContentLoaded', init);
 })();
