@@ -1,0 +1,25 @@
+{
+  "books": [
+    {
+      "title": "01_小兔子的月光之旅",
+      "titleShort": "小兔子的月光之旅",
+      "cover": "https://njafei.github.io/mavis-dashboard/books-covers/20260527_01_小兔子的月光之旅.png",
+      "pdf": "https://njafei.github.io/mavis-dashboard/books-pdfs/20260527_01_小兔子的月光之旅.pdf",
+      "date": "2026-05-27"
+    },
+    {
+      "title": "02_小海龟的海洋之梦",
+      "titleShort": "小海龟的海洋之梦",
+      "cover": "https://njafei.github.io/mavis-dashboard/books-covers/20260527_02_小海龟的海洋之梦.png",
+      "pdf": "https://njafei.github.io/mavis-dashboard/books-pdfs/20260527_02_小海龟的海洋之梦.pdf",
+      "date": "2026-05-27"
+    },
+    {
+      "title": "03_小狐狸的星星灯",
+      "titleShort": "小狐狸的星星灯",
+      "cover": "https://njafei.github.io/mavis-dashboard/books-covers/20260527_03_小狐狸的星星灯.png",
+      "pdf": "https://njafei.github.io/mavis-dashboard/books-pdfs/20260527_03_小狐狸的星星灯.pdf",
+      "date": "2026-05-27"
+    }
+  ]
+}
