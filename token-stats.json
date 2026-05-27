@@ -1,24 +1,36 @@
 {
-  "updated": "2026-05-26 22:32",
+  "updated": "2026-05-28 00:45",
   "period": "今日",
   "categories": [
     {
-      "name": "股票研究",
-      "runs": 13,
-      "calls": 195,
-      "pct": 51.7
+      "name": "Agent会话",
+      "runs": 0,
+      "calls": 0,
+      "pct": 0
     },
     {
-      "name": "绘本创作",
-      "runs": 2,
-      "calls": 92,
-      "pct": 24.4
+      "name": "Cron执行",
+      "runs": 3,
+      "calls": 15,
+      "pct": 500
     },
     {
       "name": "音乐生成",
-      "runs": 3,
-      "calls": 90,
-      "pct": 23.9
+      "runs": 0,
+      "calls": 0,
+      "pct": 0
+    },
+    {
+      "name": "绘本创作",
+      "runs": 0,
+      "calls": 0,
+      "pct": 0
+    },
+    {
+      "name": "其他",
+      "runs": 0,
+      "calls": 0,
+      "pct": 0
     }
   ]
 }
