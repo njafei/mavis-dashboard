@@ -154,14 +154,27 @@
   .track-name { font-size: 0.85rem; font-weight: 500; color: var(--text); line-height: 1.3; }
   .track-time { font-size: 0.72rem; color: var(--muted); }
   .track-play { display: flex; align-items: center; gap: 8px; }
-  .track-lyrics { font-size: 0.78rem; color: var(--muted); line-height: 1.7; background: var(--bg); border-radius: 8px; padding: 10px 12px; white-space: pre-wrap; max-height: 120px; overflow: hidden; position: relative; }
-  .track-lyrics.expanded { max-height: none; }
-  .track-lyrics-toggle { font-size: 0.72rem; color: var(--accent); cursor: pointer; margin-top: 4px; display: inline-block; }
+  .track-lyrics { font-size: 0.80rem; color: var(--muted); line-height: 2.0; background: var(--bg); border-radius: 8px; padding: 10px 12px; white-space: pre-wrap; max-height: 200px; overflow-y: auto; position: relative; box-shadow: inset 0 2px 8px rgba(0,0,0,0.12); }
+  
+  .track-lyrics-toggle { font-size: 0.72rem; color: var(--accent); cursor: pointer; margin-top: 4px; display: inline-block; user-select: none; }
+  .track-lyrics::-webkit-scrollbar { width: 3px; }
+  .track-lyrics::-webkit-scrollbar-track { background: transparent; }
+  .track-lyrics::-webkit-scrollbar-thumb { background: #e76f51; border-radius: 2px; }
   .track-lyrics-toggle:hover { opacity: 0.7; }
+  .track-lyrics span[data-line] { display: block; }
+  .track-lyrics span[data-line] { display: block; transition: color 0.3s, background 0.3s; border-radius: 4px; padding: 2px 6px; margin: 1px 0; }
+  .track-lyrics span[data-line].active { color: #fff; background: #e76f51; font-weight: 600; }
+  .track-lyrics span[data-line].past { color: #bbb; }
+  .track-lyrics-scroll-hint { font-size: 0.68rem; color: #888; text-align: center; margin-top: 2px; }
+  .track-lyrics-box { position: relative; }
+  .track-lyrics-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 20px; background: linear-gradient(to bottom, var(--bg), transparent); z-index: 1; pointer-events: none; border-radius: 8px 8px 0 0; }
+  .track-lyrics-box::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 20px; background: linear-gradient(to top, var(--bg), transparent); z-index: 1; pointer-events: none; border-radius: 0 0 8px 8px; }
   .name-cn { font-size: 0.9rem; font-weight: 500; color: var(--text); }
   .name-en { font-size: 0.72rem; color: var(--muted); margin-top: 1px; }
-  .play-btn { background: var(--accent); color: #fff; border: none; border-radius: 50%; width: 36px; height: 36px; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: opacity 0.2s; }
+  .play-btn { background: #e76f51; color: #fff; border: none; border-radius: 50%; width: 36px; height: 36px; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: opacity 0.2s; }
   .play-btn:hover { opacity: 0.85; }
+  .share-btn { background: #25f2d4; color: #1a1a2e; border: none; border-radius: 50%; width: 28px; height: 28px; font-size: 0.75rem; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: opacity 0.2s; margin-left: 4px; }
+  .share-btn:hover { opacity: 0.8; }
   audio { width: 100%; height: 32px; }
 
   /* ── Footer ── */
@@ -184,7 +197,7 @@
       <div class="brand-sub">刘斐 · 创作与研究</div>
     </div>
   </div>
-  <div class="update-label" id="update-time">更新于 2026-05-25 14:54</div>
+  <div class="update-label" id="update-time">更新于 2026-05-27 15:08</div><div id="live-clock"><script>document.getElementById('live-clock').textContent = new Date().toLocaleString('zh-CN',{year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'})</script></div>
 </header>
 
 <main>
@@ -220,9 +233,9 @@
   <div class="card">
     <div class="card-title"><span class="card-icon">📊</span> 今日数据</div>
     <div class="stat-row">
-      <div class="sbox"><div class="n indigo" id="stat-music">28</div><div class="l">音乐产出</div></div>
-      <div class="sbox"><div class="n green" id="stat-fav">4</div><div class="l">精选收录</div></div>
-      <div class="sbox"><div class="n amber" id="stat-token">0%</div><div class="l">Token已用</div></div>
+      <div class="sbox"><div class="n indigo" id="stat-music">33</div><div class="l">音乐产出</div></div>
+      <div class="sbox"><div class="n green" id="stat-fav">0</div><div class="l">精选收录</div></div>
+      <div class="sbox"><div class="n amber" id="stat-token">4%</div><div class="l">Token已用</div></div>
     </div>
   </div>
 
@@ -353,38 +366,126 @@
     var html = '';
     for (var i = 0; i < tracks.length; i++) {
       var t = tracks[i];
-      var audioTag = '<audio controls preload="none"><source src="' + t.url + '" type="audio/mpeg">您的浏览器不支持音频播放</audio>';
+      var color = t.color || '#b39ddb';
+      var coverBg = 'background:' + color;
+      var audioTag = '<audio controls preload="none" style="width:100%;height:32px;"><source src="' + t.url + '" type="audio/mpeg">您的浏览器不支持音频播放</audio>';
       var lyricsHtml = '';
       if (t.lyrics && t.lyrics.trim()) {
-        lyricsHtml = '<div class="track-lyrics" id="lyrics-' + i + '">' + escHtml(t.lyrics.trim()) + '</div>';
+        var allLyrics = t.lyrics.trim().split('\n');
+        var spans = allLyrics.map(function(line, idx) {
+          return '<span data-line="' + idx + '">' + escHtml(line) + '</span>';
+        }).join('\n');
+        lyricsHtml = '<div class="track-lyrics-box"><div class="track-lyrics" id="lyrics-' + i + '">' + spans + '</div><div class="track-lyrics-scroll-hint">♪ 随音乐滚动</div></div>';
       }
-      var infoHtml = '<div style="flex:1;min-width:0"><div class="name-cn">' + escHtml(t.name) + '</div>';
-      if (t.name_en) infoHtml += '<div class="name-en">' + escHtml(t.name_en) + '</div>';
-      infoHtml += '</div>';
-      var timeHtml = '<div class="track-time" style="flex-shrink:0">' + (t.time || '') + '</div>';
-      html += '<div class="track-card" style="display:flex;flex-direction:row;align-items:center;gap:12px;">'
-        + infoHtml + timeHtml
-        + '<button class="play-btn" onclick="togglePlay(this)" title="播放/暂停" style="margin-left:auto">▶</button>'
+      html += '<div class="track-card">'
+        + '<div style="display:grid;grid-template-columns:72px 1fr auto;gap:12px;align-items:center;">'
+        + '<div class="track-cover" style="' + coverBg + ';display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;">♪</div>'
+        + '<div>'
+        + '<div class="track-name">' + escHtml(t.name) + '</div>'
+        + '<div class="track-time">' + (t.time || '') + '</div>'
         + '</div>'
-        + '<div style="margin-bottom:10px;">' + audioTag + '</div>';
+        + '<div style="display:flex;gap:4px;flex-shrink:0;">'
+        + '<button class="play-btn" onclick="togglePlay(this)" title="播放/暂停">▶</button>'
+        + '<button class="share-btn" id="share-msg-' + i + '" onclick="shareTrack(' + i + ')" title="分享">↗</button>'
+        + '</div>'
+        + '</div>'
+        + '<div style="margin-top:10px;">' + audioTag + '</div>';
       if (lyricsHtml) {
-        html += '<div style="margin-bottom:14px;">' + lyricsHtml + '</div>';
+        var hasMore = t.lyrics.trim().split('\n').length > 4;
+        html += '<div style="margin-top:8px;">' + lyricsHtml;
+        
+        html += '</div>';
       }
+      html += '</div>';
     }
     grid.innerHTML = html;
   }
 
+  window.toggleLyrics = function(btn) {
+    var box = btn.previousElementSibling;
+    if (!box) return;
+    if (box.classList.contains('expanded')) {
+      box.classList.remove('expanded');
+      box.style.maxHeight = '120px';
+      box.style.overflow = 'hidden';
+      var short = window.__MUSIC_DATA__[box.id.split('-')[1]].lyrics.trim().split('\n').slice(0,4).join('\n');
+      box.textContent = short + '\n…';
+      btn.textContent = '展开全部 ▼';
+    } else {
+      box.classList.add('expanded');
+      box.style.maxHeight = 'none';
+      box.style.overflow = 'auto';
+      box.textContent = window.__MUSIC_DATA__[box.id.split('-')[1]].lyrics.trim();
+      btn.textContent = '收起 ▲';
+    }
+  };
+
   window.togglePlay = function(btn) {
-    var audio = btn.closest('.track-card').nextElementSibling.querySelector('audio');
+    var card = btn.closest('.track-card');
+    var audio = card.querySelector('audio');
     if (!audio) return;
     if (audio.paused) {
       document.querySelectorAll('audio').forEach(function(a){ a.pause(); });
-      document.querySelectorAll('.play-btn').forEach(function(b){ b.textContent = '▶'; });
+      document.querySelectorAll('.play-btn').forEach(function(b){ b.textContent = '▶'; b.style.background = '#e76f51'; });
       audio.play();
       btn.textContent = '⏸';
+      var lyricsBox = card.querySelector('.track-lyrics');
+      if (lyricsBox) { startLyricsScroll(card, audio, lyricsBox); }
+      btn.style.background = '#e76f51';
     } else {
       audio.pause();
       btn.textContent = '▶';
+      btn.style.background = '#e76f51';
+    }
+  };
+
+  window.startLyricsScroll = function(card, audio, lyricsBox) {
+    if (window.__lyricsScrollRAF) cancelAnimationFrame(window.__lyricsScrollRAF);
+    var lines = lyricsBox.querySelectorAll('span[data-line]');
+    if (!lines.length) {
+      // fallback: plain text scroll
+      var totalLines = lyricsBox.textContent.trim().split('\n').length;
+      window.__lyricsScrollRAF = requestAnimationFrame(function scrollPlain() {
+        if (audio.paused || audio.ended) return;
+        var ratio = audio.currentTime / audio.duration;
+        lyricsBox.scrollTop = (ratio * lyricsBox.scrollHeight) - lyricsBox.clientHeight;
+        window.__lyricsScrollRAF = requestAnimationFrame(scrollPlain);
+      });
+      return;
+    }
+    var lastActive = -1;
+    window.__lyricsScrollRAF = requestAnimationFrame(function scrollLoop() {
+      if (audio.paused || audio.ended) return;
+      var pct = audio.currentTime / audio.duration;
+      var lineIdx = Math.floor(pct * lines.length);
+      if (lineIdx !== lastActive && lineIdx < lines.length) {
+        lines.forEach(function(l){
+          l.classList.remove('active','past');
+          var li = parseInt(l.getAttribute('data-line'));
+          if (li < lineIdx) l.classList.add('past');
+        });
+        lines[lineIdx].classList.add('active');
+        lines[lineIdx].scrollIntoView({ block: 'center', behavior: 'smooth' });
+        lastActive = lineIdx;
+      }
+      window.__lyricsScrollRAF = requestAnimationFrame(scrollLoop);
+    });
+  };
+
+  window.shareTrack = function(idx) {
+    var t = window.__MUSIC_DATA__[idx];
+    var text = '♪ ' + t.name + (t.lyrics ? '\n' + t.lyrics.trim().split('\n').slice(0,4).join('\n') : '');
+    if (navigator.share) {
+      navigator.share({ title: t.name, text: text }).catch(function(){});
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      var btn = document.getElementById('share-msg-' + idx);
+      if (btn) { btn.textContent = '已复制!'; setTimeout(function(){ btn.textContent = '↗'; }, 1500); }
     }
   };
 
