@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-28T22:07:18",
+  "updated": "2026-05-28T22:07:45",
   "tracks": [
     {
       "name": "清晨暖阳",
@@ -180,6 +180,15 @@
       "time": "21:00",
       "lyrics": "",
       "color": "#ff8c42"
+    },
+    {
+      "name": "WarmNightFolksong",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/22_AcousticFolk_WarmNightFolksong/song_022.mp3",
+      "cover": "",
+      "time": "22:00",
+      "lyrics": "",
+      "color": "#8d6e63"
     }
   ]
 }
