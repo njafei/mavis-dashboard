@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-29T04:01:12",
+  "updated": "2026-05-29T04:04:59",
   "tracks": [
     {
       "name": "午夜独行者",
@@ -54,6 +54,15 @@
       "time": "09:00",
       "lyrics": "",
       "color": "#ff8c42"
+    },
+    {
+      "name": "晨曦原声",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260529/15_Acoustic_Folk_晨曦原声/music.mp3",
+      "cover": "",
+      "time": "15:00",
+      "lyrics": "",
+      "color": "#8d6e63"
     }
   ]
 }
