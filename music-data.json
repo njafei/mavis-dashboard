@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-29T04:31:02",
+  "updated": "2026-05-29T04:35:21",
   "tracks": [
     {
       "name": "午夜独行者",
@@ -7,6 +7,15 @@
       "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260529/002_Indie_Rock_午夜独行者/午夜独行者.mp3",
       "cover": "",
       "time": "02:00",
+      "lyrics": "",
+      "color": "#607d8b"
+    },
+    {
+      "name": "深夜回响",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260529/016_ChamberPop_深夜回响/016_chamber_pop.mp3",
+      "cover": "",
+      "time": "16:00",
       "lyrics": "",
       "color": "#607d8b"
     },
@@ -63,6 +72,15 @@
       "time": "15:00",
       "lyrics": "",
       "color": "#8d6e63"
+    },
+    {
+      "name": "深夜颂歌",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260529/16_ChamberPop_深夜颂歌/music.mp3",
+      "cover": "",
+      "time": "16:00",
+      "lyrics": "",
+      "color": "#607d8b"
     }
   ]
 }
