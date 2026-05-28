@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-28T20:00:34",
+  "updated": "2026-05-28T21:01:12",
   "tracks": [
     {
       "name": "清晨暖阳",
@@ -124,6 +124,15 @@
       "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/15_IndieFolk_路灯的独白/路灯的独白.mp3",
       "cover": "",
       "time": "15:00",
+      "lyrics": "",
+      "color": "#ff8c42"
+    },
+    {
+      "name": "路灯下的影子",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/16_Folk_路灯下的影子/路灯下的影子.mp3",
+      "cover": "",
+      "time": "16:00",
       "lyrics": "",
       "color": "#ff8c42"
     }
