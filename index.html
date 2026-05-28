@@ -436,7 +436,7 @@
         + '<div class="track-body">'
         + '<a href="' + escHtml(pageLink) + '" target="_blank" class="name-link name-cn">' + escHtml(t.name) + '</a>'
         + metaHtml
-        + '<div class="track-meta">' + (t.time || '') + ' · 点击封面查看详情</div>'
+        + '<div class="track-meta">' + fmtDateFromUrl(t.url) + ' ' + fmtTime(t.time) + ' · 点击封面查看详情</div>'
         + '<audio id="audio-' + i + '" preload="none"><source src="' + escHtml(t.url) + '" type="audio/mpeg">您的浏览器不支持音频播放</audio>'
         + lyricsHtml
         + '<div class="track-actions">' + shareBtn + '</div>'
@@ -444,6 +444,16 @@
         + '</div>';
     }
     grid.innerHTML = html;
+  }
+
+  function fmtDateFromUrl(url) {
+    var m = String(url).match(/\/(\d{4})(\d{2})(\d{2})\//);
+    return m ? m[1] + '-' + m[2] + '-' + m[3] : '';
+  }
+
+  function fmtTime(t) {
+    var m = String(t).match(/^(\d{2}):(\d{2})$/);
+    return m ? m[1] + ':' + m[2] : String(t || '');
   }
 
   // Extract style from URL path (e.g. /01_Folk_SongName/ → Folk)
