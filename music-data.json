@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-29T01:33:29",
+  "updated": "2026-05-29T01:34:57",
   "tracks": [
     {
       "name": "午夜独行者",
@@ -34,6 +34,15 @@
       "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260529/04_ChamberPop_深海沉船/深海沉船.mp3",
       "cover": "",
       "time": "04:00",
+      "lyrics": "",
+      "color": "#607d8b"
+    },
+    {
+      "name": "无声的深海",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260529/08_Chamber_Pop_无声的深海/无声的深海.mp3",
+      "cover": "",
+      "time": "08:00",
       "lyrics": "",
       "color": "#607d8b"
     }
