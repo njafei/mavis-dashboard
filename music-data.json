@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-28T21:01:12",
+  "updated": "2026-05-28T21:09:42",
   "tracks": [
     {
       "name": "清晨暖阳",
@@ -133,6 +133,51 @@
       "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/16_Folk_路灯下的影子/路灯下的影子.mp3",
       "cover": "",
       "time": "16:00",
+      "lyrics": "",
+      "color": "#ff8c42"
+    },
+    {
+      "name": "窗外的灯火",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/17_IndieFolk_窗外的灯火/song.mp3",
+      "cover": "",
+      "time": "17:00",
+      "lyrics": "",
+      "color": "#ff8c42"
+    },
+    {
+      "name": "夜的尽头",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/18_PostRock_夜的尽头/song.mp3",
+      "cover": "",
+      "time": "18:00",
+      "lyrics": "",
+      "color": "#607d8b"
+    },
+    {
+      "name": "星空下的约定",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/19_ChamberPop_星空下的约定/song.mp3",
+      "cover": "",
+      "time": "19:00",
+      "lyrics": "",
+      "color": "#607d8b"
+    },
+    {
+      "name": "渡口",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/20_ChineseOpera_渡口/song.mp3",
+      "cover": "",
+      "time": "20:00",
+      "lyrics": "",
+      "color": "#607d8b"
+    },
+    {
+      "name": "深夜咖啡馆",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/21_IndieFolk_深夜咖啡馆/song.mp3",
+      "cover": "",
+      "time": "21:00",
       "lyrics": "",
       "color": "#ff8c42"
     }
