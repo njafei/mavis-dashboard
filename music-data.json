@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-28T23:30:35",
+  "updated": "2026-05-28T23:42:39",
   "tracks": [
     {
       "name": "清晨暖阳",
@@ -196,6 +196,24 @@
       "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/29_PostRock_钢铁森林的雨夜/钢铁森林的雨夜.mp3",
       "cover": "",
       "time": "29:00",
+      "lyrics": "",
+      "color": "#607d8b"
+    },
+    {
+      "name": "星尘漂泊者",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/31_Rock_星尘漂泊者/星尘漂泊者.mp3",
+      "cover": "",
+      "time": "31:00",
+      "lyrics": "",
+      "color": "#607d8b"
+    },
+    {
+      "name": "雨夜迷途",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/31_Rock_雨夜迷途/雨夜迷途.mp3",
+      "cover": "",
+      "time": "31:00",
       "lyrics": "",
       "color": "#607d8b"
     }
