@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-29T07:30:11",
+  "updated": "2026-05-29T07:33:24",
   "tracks": [
     {
       "name": "午夜独行者",
@@ -97,6 +97,15 @@
       "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260529/21_Folk_晨雾渐染/晨雾渐染.mp3",
       "cover": "",
       "time": "21:00",
+      "lyrics": "",
+      "color": "#ff8c42"
+    },
+    {
+      "name": "晨光渐染",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260529/22_Folk_晨光渐染/晨光渐染.mp3",
+      "cover": "",
+      "time": "22:00",
       "lyrics": "",
       "color": "#ff8c42"
     }
