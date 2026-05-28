@@ -1,110 +1,122 @@
-[
-  {
-    "name": "清晨暖阳",
-    "name_en": "",
-    "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/01_Folk_清晨暖阳/01_Folk_清晨暖阳.mp3",
-    "cover": "",
-    "time": "01:00",
-    "lyrics": "",
-    "color": "#ff8c42"
-  },
-  {
-    "name": "雨后青苔路",
-    "name_en": "",
-    "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/01_IndieFolk_雨后青苔路/雨后青苔路.mp3",
-    "cover": "",
-    "time": "01:00",
-    "lyrics": "",
-    "color": "#ff8c42"
-  },
-  {
-    "name": "暮色降临",
-    "name_en": "",
-    "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/02_Rock_暮色降临/03_Rock_暮色降临.mp3",
-    "cover": "",
-    "time": "02:00",
-    "lyrics": "",
-    "color": "#607d8b"
-  },
-  {
-    "name": "雾中信号塔",
-    "name_en": "",
-    "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/02_Shoegaze_雾中信号塔/雾中信号塔.mp3",
-    "cover": "",
-    "time": "02:00",
-    "lyrics": "",
-    "color": "#607d8b"
-  },
-  {
-    "name": "旧唱片时光",
-    "name_en": "",
-    "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/03_ChamberPop_旧唱片时光/旧唱片时光.mp3",
-    "cover": "",
-    "time": "03:00",
-    "lyrics": "",
-    "color": "#607d8b"
-  },
-  {
-    "name": "晚风之歌",
-    "name_en": "",
-    "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/03_Choir_晚风之歌/04_Choir_晚风之歌.mp3",
-    "cover": "",
-    "time": "03:00",
-    "lyrics": "",
-    "color": "#607d8b"
-  },
-  {
-    "name": "将相和",
-    "name_en": "",
-    "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/04_ChineseOpera_将相和/05_ChineseOpera_将相和.mp3",
-    "cover": "",
-    "time": "04:00",
-    "lyrics": "",
-    "color": "#607d8b"
-  },
-  {
-    "name": "渡口独白",
-    "name_en": "",
-    "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/04_ChineseOpera_渡口独白/渡口独白.mp3",
-    "cover": "",
-    "time": "04:00",
-    "lyrics": "",
-    "color": "#607d8b"
-  },
-  {
-    "name": "夜行人",
-    "name_en": "",
-    "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/05_IndiePop_夜行人/02_Folk_午后阳光.mp3",
-    "cover": "",
-    "time": "05:00",
-    "lyrics": "",
-    "color": "#ffab91"
-  },
-  {
-    "name": "深夜便利店",
-    "name_en": "",
-    "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/05_Lo-fiFolk_深夜便利店/深夜便利店.mp3",
-    "cover": "",
-    "time": "05:00",
-    "lyrics": "",
-    "color": "#ff8c42"
-  },
-  {
-    "name": "黄昏漫步",
-    "name_en": "",
-    "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/06_Folk_黄昏漫步/06_Folk_黄昏漫步.mp3",
-    "cover": "",
-    "time": "06:00",
-    "lyrics": "",
-    "color": "#ff8c42"
-  },
-  {
-    "name": "暮色挽歌",
-    "name_en": "",
-    "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/08_Jazz_暮色挽歌/08_Jazz_暮色挽歌.mp3",
-    "cover": "",
-    "time": "08:00",
-    "lyrics": "",
-    "color": "#ffcc80"
-  }
-]
+{
+  "updated": "2026-05-28T19:00:48",
+  "tracks": [
+    {
+      "name": "清晨暖阳",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/01_Folk_清晨暖阳/01_Folk_清晨暖阳.mp3",
+      "cover": "",
+      "time": "01:00",
+      "lyrics": "",
+      "color": "#ff8c42"
+    },
+    {
+      "name": "雨后青苔路",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/01_IndieFolk_雨后青苔路/雨后青苔路.mp3",
+      "cover": "",
+      "time": "01:00",
+      "lyrics": "",
+      "color": "#ff8c42"
+    },
+    {
+      "name": "暮色降临",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/02_Rock_暮色降临/03_Rock_暮色降临.mp3",
+      "cover": "",
+      "time": "02:00",
+      "lyrics": "",
+      "color": "#607d8b"
+    },
+    {
+      "name": "雾中信号塔",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/02_Shoegaze_雾中信号塔/雾中信号塔.mp3",
+      "cover": "",
+      "time": "02:00",
+      "lyrics": "",
+      "color": "#607d8b"
+    },
+    {
+      "name": "旧唱片时光",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/03_ChamberPop_旧唱片时光/旧唱片时光.mp3",
+      "cover": "",
+      "time": "03:00",
+      "lyrics": "",
+      "color": "#607d8b"
+    },
+    {
+      "name": "晚风之歌",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/03_Choir_晚风之歌/04_Choir_晚风之歌.mp3",
+      "cover": "",
+      "time": "03:00",
+      "lyrics": "",
+      "color": "#607d8b"
+    },
+    {
+      "name": "将相和",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/04_ChineseOpera_将相和/05_ChineseOpera_将相和.mp3",
+      "cover": "",
+      "time": "04:00",
+      "lyrics": "",
+      "color": "#607d8b"
+    },
+    {
+      "name": "渡口独白",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/04_ChineseOpera_渡口独白/渡口独白.mp3",
+      "cover": "",
+      "time": "04:00",
+      "lyrics": "",
+      "color": "#607d8b"
+    },
+    {
+      "name": "夜行人",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/05_IndiePop_夜行人/02_Folk_午后阳光.mp3",
+      "cover": "",
+      "time": "05:00",
+      "lyrics": "",
+      "color": "#ffab91"
+    },
+    {
+      "name": "深夜便利店",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/05_Lo-fiFolk_深夜便利店/深夜便利店.mp3",
+      "cover": "",
+      "time": "05:00",
+      "lyrics": "",
+      "color": "#ff8c42"
+    },
+    {
+      "name": "黄昏漫步",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/06_Folk_黄昏漫步/06_Folk_黄昏漫步.mp3",
+      "cover": "",
+      "time": "06:00",
+      "lyrics": "",
+      "color": "#ff8c42"
+    },
+    {
+      "name": "暮色挽歌",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/08_Jazz_暮色挽歌/08_Jazz_暮色挽歌.mp3",
+      "cover": "",
+      "time": "08:00",
+      "lyrics": "",
+      "color": "#ffcc80"
+    },
+    {
+      "name": "星火燎原",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/14_Rock_星火燎原/星火燎原.mp3",
+      "cover": "",
+      "time": "14:00",
+      "lyrics": "",
+      "color": "#607d8b"
+    }
+  ]
+}
