@@ -189,6 +189,15 @@
       "time": "22:00",
       "lyrics": "",
       "color": "#8d6e63"
+    },
+    {
+      "name": "时光杂货铺",
+      "name_en": "23_ChamberPop",
+      "url": "https://cdn.hailuoai.com/mcp/anon/general/1779977438_e2e38496.bin",
+      "cover": "",
+      "time": "23:00",
+      "lyrics": "器乐：纯音乐（Chamber Pop 氛围）\n弦乐+钢琴+老唱机底噪\n烛光摇曳，老唱机缓缓转动，咖啡香气弥漫",
+      "color": "#607d8b"
     }
   ]
 }
