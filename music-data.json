@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-28T23:03:32",
+  "updated": "2026-05-28T23:04:56",
   "tracks": [
     {
       "name": "清晨暖阳",
@@ -189,6 +189,15 @@
       "time": "22:00",
       "lyrics": "",
       "color": "#8d6e63"
+    },
+    {
+      "name": "钢铁森林的雨夜",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260528/29_PostRock_钢铁森林的雨夜/钢铁森林的雨夜.mp3",
+      "cover": "",
+      "time": "29:00",
+      "lyrics": "",
+      "color": "#607d8b"
     }
   ]
 }
