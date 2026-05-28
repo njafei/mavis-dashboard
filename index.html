@@ -145,7 +145,25 @@
     flex-direction: column;
     transition: box-shadow 0.2s, transform 0.2s;
     cursor: default;
+    border-left: 3px solid #607d8b;
   }
+  .track-card.swatch-Folk         { border-left-color: #ff8c42; }
+  .track-card.swatch-Rock         { border-left-color: #607d8b; }
+  .track-card.swatch-Choir        { border-left-color: #b39ddb; }
+  .track-card.swatch-ChineseOpera { border-left-color: #e53935; }
+  .track-card.swatch-Electronic   { border-left-color: #00d4ff; }
+  .track-card.swatch-Ambient     { border-left-color: #78909c; }
+  .track-card.swatch-Cinematic   { border-left-color: #ff7043; }
+  .track-card.swatch-LoFi         { border-left-color: #ce93d8; }
+  .track-card.swatch-Dreamy      { border-left-color: #b39ddb; }
+  .track-card.swatch-Shoegaze    { border-left-color: #90a4ae; }
+  .track-card.swatch-IndieFolk   { border-left-color: #ff8c42; }
+  .track-card.swatch-ChamberPop  { border-left-color: #ffcc80; }
+  .track-card.swatch-PostRock    { border-left-color: #78909c; }
+  .track-card.swatch-Jazz        { border-left-color: #ffcc80; }
+  .track-card.swatch-IndiePop    { border-left-color: #ffab91; }
+  .track-card.swatch-Lo-fiFolk   { border-left-color: #ff8c42; }
+  .track-card.swatch-FolkPop     { border-left-color: #ff8c42; }
   .track-card:hover {
     box-shadow: 0 6px 24px rgba(99,102,241,0.12);
     transform: translateY(-2px);
@@ -248,7 +266,7 @@
       <div class="brand-sub">刘斐 · 创作与研究</div>
     </div>
   </div>
-  <div class="update-label" id="update-time">更新于 2026-05-28 16:30</div>
+  <div class="update-label" id="update-time">更新于 --:--</div>
 </header>
 
 <main>
@@ -392,7 +410,7 @@
       var pageLink = t.page_url || '#';
       var coverHtml = t.cover
         ? '<img class="track-cover" src="' + escHtml(t.cover) + '" alt="cover" loading="lazy"/>'
-        : '<div class="track-cover placeholder g' + gradIdx + '"></div>';
+        : '<div class="track-cover placeholder" style="background: linear-gradient(135deg, ' + escHtml(t.color || '#607d8b') + ' 0%, ' + escHtml(t.color || '#607d8b') + ' 40%, #ffffff20 100%)"></div>';
       coverHtml = '<a href="' + escHtml(pageLink) + '" target="_blank" class="cover-link" onclick="event.stopPropagation()">' + coverHtml + '</a>';
       var metaHtml = t.name_en
         ? '<a href="' + escHtml(pageLink) + '" target="_blank" class="name-link">' + escHtml(t.name_en) + '</a>'
@@ -406,7 +424,9 @@
       var shareBtn = t.page_url
         ? '<button class="share-btn" onclick="copyShare(\'' + escHtml(t.page_url) + '\')" title="分享链接">分享</button>'
         : '';
-      html += '<div class="track-card">'
+      var style = getStyleFromUrl(t.url || '');
+      var swatchClass = style ? ' swatch-' + style : '';
+      html += '<div class="track-card' + swatchClass + '">'
         + '<div class="track-cover-wrap">'
         + coverHtml
         + '<div class="track-play-overlay">'
@@ -424,6 +444,12 @@
         + '</div>';
     }
     grid.innerHTML = html;
+  }
+
+  // Extract style from URL path (e.g. /01_Folk_SongName/ → Folk)
+  function getStyleFromUrl(url) {
+    var m = String(url).match(/\/(\d+)_([A-Za-z]+)_[^/]+\//);
+    return m ? m[2] : '';
   }
 
   window.togglePlay = function(idx) {
@@ -534,13 +560,30 @@
     renderMusic();
     // Fetch music data AFTER DOM ready, then call renderMusic again
     fetch('music-data.json?v=' + Date.now(), {cache: 'no-store'}).then(function(r){return r.json();}).then(function(d){
-      window.__MUSIC_DATA__ = d;
+      // Support both flat array (legacy) and wrapped {updated, tracks} format
+      var tracks = (d && d.tracks) ? d.tracks : (Array.isArray(d) ? d : []);
+      var updated = (d && d.updated) ? d.updated : null;
+      window.__MUSIC_DATA__ = tracks;
+
+      // Update header timestamp from JSON, fall back to local time
+      if (updated) {
+        var d2 = new Date(updated.replace(' ', 'T'));
+        if (!isNaN(d2)) {
+          var pad2 = function(n){ return String(n).padStart(2,'0'); };
+          document.getElementById('update-time').textContent = '更新于 '
+            + d2.getFullYear() + '-'
+            + pad2(d2.getMonth()+1) + '-'
+            + pad2(d2.getDate()) + ' '
+            + pad2(d2.getHours()) + ':'
+            + pad2(d2.getMinutes());
+        }
+      }
       console.log("fetch done, tracks:", window.__MUSIC_DATA__.length);
       renderMusic();
     }).catch(function(err){
       console.error("fetch error:", err);
+      renderMusic();
     });
-    // Fetch music data AFTER DOM ready, then call renderMusic again
   };
   window.addEventListener('DOMContentLoaded', init);
 })();
