@@ -132,25 +132,7 @@
   .tcat-count { width: 68px; color: var(--muted); font-size: 0.7rem; }
   .tcat-note { font-size: 0.65rem; color: var(--muted); margin-top: 10px; }
 
-  /* ── Stock briefs ── */
-  .stock-brief-list { display: flex; flex-direction: column; gap: 8px; }
-  .sb-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; background: var(--bg); border-radius: 10px; transition: box-shadow 0.15s; }
-  .sb-item:hover { box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
-  .sb-score { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.82rem; font-weight: 700; flex-shrink: 0; }
-  .sb-score.high { background: var(--green); color: #fff; }
-  .sb-score.mid { background: var(--amber); color: #fff; }
-  .sb-score.low { background: var(--muted); color: #fff; }
-  .sb-body { flex: 1; min-width: 0; }
-  .sb-name { font-size: 0.85rem; font-weight: 600; color: var(--text); }
-  .sb-code { font-size: 0.68rem; color: var(--muted); margin-left: 6px; font-weight: 400; }
-  .sb-summary { font-size: 0.72rem; color: #475569; margin-top: 3px; line-height: 1.5; }
-  .sb-actions { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0; }
-  .sb-time { font-size: 0.65rem; color: var(--muted); }
-  .sb-signal { font-size: 0.65rem; font-weight: 500; padding: 2px 8px; border-radius: 10px; }
-  .sb-signal.good { background: #d1fae5; color: var(--green); }
-  .sb-signal.warn { background: #fef3c7; color: var(--amber); }
-  .sb-detail-btn { font-size: 0.68rem; font-weight: 500; color: var(--accent); background: var(--accent-light); border: none; border-radius: 6px; padding: 3px 10px; cursor: pointer; transition: opacity 0.15s; white-space: nowrap; }
-  .sb-detail-btn:hover { opacity: 0.8; }
+
 
   /* ── Music player ── */
   .music-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
@@ -266,7 +248,7 @@
       <div class="brand-sub">刘斐 · 创作与研究</div>
     </div>
   </div>
-  <div class="update-label" id="update-time">更新于 2026-05-28 09:00</div>
+  <div class="update-label" id="update-time">更新于 2026-05-28 15:00</div>
 </header>
 
 <main>
@@ -304,7 +286,7 @@
     <div class="stat-row">
       <div class="sbox"><div class="n indigo" id="stat-music">0</div><div class="l">音乐产出</div></div>
       <div class="sbox"><div class="n green" id="stat-fav">0</div><div class="l">今日小说</div></div>
-      <div class="sbox"><div class="n amber" id="stat-token">16%</div><div class="l">精选收录</div></div>
+      <div class="sbox"><div class="n amber" id="stat-token">0%</div><div class="l">精选收录</div></div>
     </div>
   </div>
 
@@ -321,14 +303,7 @@
         </div>
         <div class="task-next" id="next-music">—</div>
       </div>
-      <div class="task-item">
-        <div class="task-dot green"></div>
-        <div class="task-info">
-          <div class="task-name">hourly-stock-monitor</div>
-          <div class="task-sched">每整点</div>
-        </div>
-        <div class="task-next" id="next-stock">—</div>
-      </div>
+
       <div class="task-item">
         <div class="task-dot green"></div>
         <div class="task-info">
@@ -364,12 +339,7 @@
     </div>
   </div>
 
-  <!-- ── Stock briefs ── -->
-  <div class="sec">📈 股票分析简报</div>
-  <div class="card">
-    <div class="card-title"><span class="card-icon">📈</span> 24小时内全部股票</div>
-    <div class="stock-brief-list" id="stock-brief-list">加载中...</div>
-  </div>
+
 
   <!-- ── Music player ── -->
   <div class="sec" id="music-sec">🎵 灵感音乐 · 点击播放</div>
@@ -525,38 +495,7 @@
     }
   };
 
-  // ── Render stock briefs ──
-  function renderStockBriefs(data) {
-    var el = document.getElementById('stock-brief-list');
-    if (!data || !data.briefs || data.briefs.length === 0) {
-      el.innerHTML = '<div style="font-size:0.78rem;color:var(--muted)">暂无数据 · 每小时自动更新</div>';
-      return;
-    }
-    var html = '';
-    for (var i = 0; i < data.briefs.length; i++) {
-      var b = data.briefs[i];
-      var score = b.score || 0;
-      var scoreClass = score >= 7.5 ? 'high' : (score >= 6.5 ? 'mid' : 'low');
-      var signalClass = b.signal === '值得关注' ? 'good' : 'warn';
-      var link = escHtml(b.detail_link || '');
-      var peStr = b.pe ? 'PE ' + b.pe + '倍' : '';
-      var divStr = b.dividend ? ' 股息' + b.dividend : '';
-      html += '<div class="sb-item">'
-        + '<div class="sb-score ' + scoreClass + '">' + score.toFixed(1) + '</div>'
-        + '<div class="sb-body">'
-        + '<div class="sb-name">' + escHtml(b.stock || b.name || '') + ' <span class="sb-code">' + escHtml(b.code || '') + '</span>'
-        + (peStr || divStr ? '<span class="sb-metrics">' + peStr + (peStr && divStr ? ' · ' : '') + divStr + '</span>' : '') + '</div>'
-        + '<div class="sb-summary">' + escHtml(b.summary || b.conclusion || '') + '</div>'
-        + '</div>'
-        + '<div class="sb-actions">'
-        + '<div class="sb-signal ' + signalClass + '">' + escHtml(b.signal || '') + '</div>'
-        + '<div class="sb-time">' + escHtml(b.time || '') + '</div>'
-        + (link ? '<button class="sb-detail-btn" onclick="window.open(\'' + link + '\')">查看详情 ↗</button>' : '')
-        + '</div>'
-        + '</div>';
-    }
-    el.innerHTML = html;
-  }
+
 
   window._lyricsData = [];
   window.toggleLyrics = function(idx) {
@@ -580,7 +519,7 @@
   // ── Init timers ──
   function init() {
     document.getElementById('next-music').textContent = getNextHalfHour() + ' 后';
-    document.getElementById('next-stock').textContent = getNextHour() + ' 后';
+
     document.getElementById('next-watchdog').textContent = getNextHour() + ' 后';
     document.getElementById('next-dashboard').textContent = getNextHalfHour() + ' 后';
 
@@ -601,12 +540,7 @@
     }).catch(function(err){
       console.error("fetch error:", err);
     });
-    // Fetch stock briefs
-    fetch('stock-briefs.json?v=' + Date.now(), {cache: 'no-store'}).then(function(r){return r.json();}).then(function(d){
-      renderStockBriefs(d);
-    }).catch(function(){
-      document.getElementById('stock-brief-list').innerHTML = '<div style="font-size:0.78rem;color:var(--muted)">暂无数据</div>';
-    });
+    // Fetch music data AFTER DOM ready, then call renderMusic again
   };
   window.addEventListener('DOMContentLoaded', init);
 })();
