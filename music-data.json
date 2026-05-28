@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-29T00:34:30",
+  "updated": "2026-05-29T01:02:24",
   "tracks": [
     {
       "name": "午夜独行者",
@@ -16,6 +16,15 @@
       "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260529/01_Folk_沉入梦境/沉入梦境.mp3",
       "cover": "",
       "time": "01:00",
+      "lyrics": "",
+      "color": "#ff8c42"
+    },
+    {
+      "name": "晨光小路",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260529/03_Folk_晨光小路/晨光小路.mp3",
+      "cover": "",
+      "time": "03:00",
       "lyrics": "",
       "color": "#ff8c42"
     }
