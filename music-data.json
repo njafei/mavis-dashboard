@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-29T02:31:12",
+  "updated": "2026-05-29T02:35:02",
   "tracks": [
     {
       "name": "午夜独行者",
@@ -45,6 +45,15 @@
       "time": "08:00",
       "lyrics": "",
       "color": "#607d8b"
+    },
+    {
+      "name": "midnight",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260529/09_Folk_midnight/09_Folk_midnight.mp3",
+      "cover": "",
+      "time": "09:00",
+      "lyrics": "",
+      "color": "#ff8c42"
     }
   ]
 }
