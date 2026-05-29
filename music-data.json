@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-29T23:01:09",
+  "updated": "2026-05-29T23:37:28",
   "tracks": [
     {
       "name": "午夜独行者",
@@ -27,6 +27,15 @@
       "time": "01:00",
       "lyrics": "",
       "color": "#ff8c42"
+    },
+    {
+      "name": "月下独酌",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260529/027_ChineseOpera_月下独酌/月下独酌.mp3",
+      "cover": "",
+      "time": "23:00",
+      "lyrics": "",
+      "color": "#607d8b"
     },
     {
       "name": "晨光小路",
