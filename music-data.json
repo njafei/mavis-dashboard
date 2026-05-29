@@ -1,6 +1,15 @@
 {
-  "updated": "2026-05-30T06:00:37",
+  "updated": "2026-05-30T06:03:28",
   "tracks": [
+    {
+      "name": "晨雾漫步",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260530/001_IndieFolk_晨雾漫步/song.mp3",
+      "cover": "",
+      "time": "01:00",
+      "lyrics": "",
+      "color": "#ff8c42"
+    },
     {
       "name": "夜窗独坐",
       "name_en": "",
@@ -207,15 +216,6 @@
       "time": "20:00",
       "lyrics": "",
       "color": "#607d8b"
-    },
-    {
-      "name": "晨雾渐染",
-      "name_en": "",
-      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260529/21_Folk_晨雾渐染/晨雾渐染.mp3",
-      "cover": "",
-      "time": "21:00",
-      "lyrics": "",
-      "color": "#ff8c42"
     }
   ]
 }
