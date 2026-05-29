@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-30T05:00:45",
+  "updated": "2026-05-30T05:04:55",
   "tracks": [
     {
       "name": "夜窗独坐",
@@ -68,6 +68,15 @@
       "name": "星河夜渡",
       "name_en": "",
       "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260530/49_Folk_星河夜渡/星河夜渡.mp3",
+      "cover": "",
+      "time": "05:00",
+      "lyrics": "",
+      "color": "#ff8c42"
+    },
+    {
+      "name": "凌晨四点",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260530/50_IndieFolk_凌晨四点/凌晨四点.mp3",
       "cover": "",
       "time": "05:00",
       "lyrics": "",
@@ -207,15 +216,6 @@
       "time": "22:00",
       "lyrics": "",
       "color": "#ff8c42"
-    },
-    {
-      "name": "暮色疾驰",
-      "name_en": "",
-      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260529/24_Rock_暮色疾驰/暮色疾驰.mp3",
-      "cover": "",
-      "time": "23:00",
-      "lyrics": "",
-      "color": "#607d8b"
     }
   ]
 }
