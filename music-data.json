@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-30T06:30:34",
+  "updated": "2026-05-30T06:33:26",
   "tracks": [
     {
       "name": "晨雾漫步",
@@ -47,11 +47,29 @@
       "color": "#78909c"
     },
     {
+      "name": "天亮之前",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260530/17_Rock_天亮之前/天亮之前.mp3",
+      "cover": "",
+      "time": "17:00",
+      "lyrics": "",
+      "color": "#607d8b"
+    },
+    {
       "name": "深海回声",
       "name_en": "",
       "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260530/1_Rock_深海回声/深海回声.mp3",
       "cover": "",
       "time": "01:00",
+      "lyrics": "",
+      "color": "#607d8b"
+    },
+    {
+      "name": "破晓",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260530/2_Rock_破晓/破晓.mp3",
+      "cover": "",
+      "time": "02:00",
       "lyrics": "",
       "color": "#607d8b"
     },
@@ -196,24 +214,6 @@
       "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260529/16_ChamberPop_深夜颂歌/music.mp3",
       "cover": "",
       "time": "16:00",
-      "lyrics": "",
-      "color": "#607d8b"
-    },
-    {
-      "name": "破晓轰鸣",
-      "name_en": "",
-      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260529/17_Rock_破晓轰鸣/破晓轰鸣.mp3",
-      "cover": "",
-      "time": "17:00",
-      "lyrics": "",
-      "color": "#607d8b"
-    },
-    {
-      "name": "星尘回响",
-      "name_en": "",
-      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260529/20_Shoegaze_星尘回响/song.mp3",
-      "cover": "",
-      "time": "20:00",
       "lyrics": "",
       "color": "#607d8b"
     }
