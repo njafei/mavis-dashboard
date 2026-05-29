@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-30 05:30",
+  "updated": "2026-05-30 06:00",
   "period": "今日",
   "categories": [
     {
@@ -10,14 +10,14 @@
     },
     {
       "name": "Cron执行",
-      "runs": 20,
-      "calls": 100,
+      "runs": 23,
+      "calls": 115,
       "pct": 88
     },
     {
       "name": "音乐生成",
-      "runs": 14,
-      "calls": 14,
+      "runs": 15,
+      "calls": 15,
       "pct": 12
     },
     {
