@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-30T03:00:43",
+  "updated": "2026-05-30T03:04:29",
   "tracks": [
     {
       "name": "夜窗独坐",
@@ -18,6 +18,15 @@
       "time": "06:00",
       "lyrics": "",
       "color": "#607d8b"
+    },
+    {
+      "name": "无人之境",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260530/07_Folk_无人之境/无人之境.mp3",
+      "cover": "",
+      "time": "07:00",
+      "lyrics": "",
+      "color": "#ff8c42"
     },
     {
       "name": "深海回声",
@@ -207,15 +216,6 @@
       "time": "23:00",
       "lyrics": "",
       "color": "#607d8b"
-    },
-    {
-      "name": "晚风轻歌",
-      "name_en": "",
-      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260529/26_Folk_晚风轻歌/song.mp3",
-      "cover": "",
-      "time": "23:00",
-      "lyrics": "",
-      "color": "#ff8c42"
     }
   ]
 }
