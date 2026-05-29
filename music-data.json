@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-29T08:01:09",
+  "updated": "2026-05-29T08:33:35",
   "tracks": [
     {
       "name": "午夜独行者",
@@ -88,6 +88,15 @@
       "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260529/17_Rock_破晓轰鸣/破晓轰鸣.mp3",
       "cover": "",
       "time": "17:00",
+      "lyrics": "",
+      "color": "#607d8b"
+    },
+    {
+      "name": "星尘回响",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260529/20_Shoegaze_星尘回响/song.mp3",
+      "cover": "",
+      "time": "20:00",
       "lyrics": "",
       "color": "#607d8b"
     },
