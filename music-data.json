@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-29T09:30:40",
+  "updated": "2026-05-29T09:31:54",
   "tracks": [
     {
       "name": "午夜独行者",
@@ -117,6 +117,15 @@
       "time": "22:00",
       "lyrics": "",
       "color": "#ff8c42"
+    },
+    {
+      "name": "暮色疾驰",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260529/24_Rock_暮色疾驰/暮色疾驰.mp3",
+      "cover": "",
+      "time": "24:00",
+      "lyrics": "",
+      "color": "#607d8b"
     }
   ]
 }
