@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-30T05:30:36",
+  "updated": "2026-05-30T05:34:39",
   "tracks": [
     {
       "name": "夜窗独坐",
@@ -27,6 +27,15 @@
       "time": "07:00",
       "lyrics": "",
       "color": "#ff8c42"
+    },
+    {
+      "name": "黎明前的一盏灯",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260530/15_Post-Rock_黎明前的一盏灯/黎明前的一盏灯.mp3",
+      "cover": "",
+      "time": "15:00",
+      "lyrics": "",
+      "color": "#78909c"
     },
     {
       "name": "深海回声",
@@ -205,15 +214,6 @@
       "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260529/21_Folk_晨雾渐染/晨雾渐染.mp3",
       "cover": "",
       "time": "21:00",
-      "lyrics": "",
-      "color": "#ff8c42"
-    },
-    {
-      "name": "晨光渐染",
-      "name_en": "",
-      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260529/22_Folk_晨光渐染/晨光渐染.mp3",
-      "cover": "",
-      "time": "22:00",
       "lyrics": "",
       "color": "#ff8c42"
     }
