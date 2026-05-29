@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-29T21:01:19",
+  "updated": "2026-05-29T21:03:57",
   "tracks": [
     {
       "name": "午夜独行者",
@@ -135,6 +135,15 @@
       "time": "21:00",
       "lyrics": "",
       "color": "#607d8b"
+    },
+    {
+      "name": "晚风轻歌",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260529/26_Folk_晚风轻歌/song.mp3",
+      "cover": "",
+      "time": "21:00",
+      "lyrics": "",
+      "color": "#ff8c42"
     }
   ]
 }
