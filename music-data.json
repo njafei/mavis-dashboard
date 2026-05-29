@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-30T03:30:29",
+  "updated": "2026-05-30T03:32:58",
   "tracks": [
     {
       "name": "夜窗独坐",
@@ -63,6 +63,15 @@
       "time": "03:00",
       "lyrics": "",
       "color": "#ff8c42"
+    },
+    {
+      "name": "凌晨三点半",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260530/8_Rock_凌晨三点半/凌晨三点半.mp3",
+      "cover": "",
+      "time": "08:00",
+      "lyrics": "",
+      "color": "#607d8b"
     },
     {
       "name": "午夜独行者",
@@ -203,15 +212,6 @@
       "name": "阳光窗台",
       "name_en": "",
       "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260529/25_Choir_阳光窗台/阳光窗台.mp3",
-      "cover": "",
-      "time": "23:00",
-      "lyrics": "",
-      "color": "#607d8b"
-    },
-    {
-      "name": "星河慢语",
-      "name_en": "",
-      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260529/25_Rock_星河慢语/星河慢语.mp3",
       "cover": "",
       "time": "23:00",
       "lyrics": "",
