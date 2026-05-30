@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-30T09:30:37",
+  "updated": "2026-05-30T09:41:46",
   "tracks": [
     {
       "name": "晨雾漫步",
@@ -63,6 +63,15 @@
       "time": "01:00",
       "lyrics": "",
       "color": "#607d8b"
+    },
+    {
+      "name": "天亮了",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260530/27_IndieFolk_天亮了/天亮了.mp3",
+      "cover": "",
+      "time": "09:00",
+      "lyrics": "",
+      "color": "#ff8c42"
     },
     {
       "name": "风里走散",
@@ -137,6 +146,15 @@
       "color": "#607d8b"
     },
     {
+      "name": "长亭外",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260530/52_ChineseOpera_长亭外/长亭外.mp3",
+      "cover": "",
+      "time": "09:00",
+      "lyrics": "",
+      "color": "#607d8b"
+    },
+    {
       "name": "凌晨三点半",
       "name_en": "",
       "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260530/8_Rock_凌晨三点半/凌晨三点半.mp3",
@@ -198,24 +216,6 @@
       "time": "04:00",
       "lyrics": "",
       "color": "#607d8b"
-    },
-    {
-      "name": "无声的深海",
-      "name_en": "",
-      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260529/08_Chamber_Pop_无声的深海/无声的深海.mp3",
-      "cover": "",
-      "time": "08:00",
-      "lyrics": "",
-      "color": "#607d8b"
-    },
-    {
-      "name": "midnight",
-      "name_en": "",
-      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260529/09_Folk_midnight/09_Folk_midnight.mp3",
-      "cover": "",
-      "time": "09:00",
-      "lyrics": "",
-      "color": "#ff8c42"
     }
   ]
 }
