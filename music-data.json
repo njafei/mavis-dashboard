@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-30T10:00:58",
+  "updated": "2026-05-30T10:05:25",
   "tracks": [
     {
       "name": "晨雾漫步",
@@ -36,6 +36,15 @@
       "time": "07:00",
       "lyrics": "",
       "color": "#ff8c42"
+    },
+    {
+      "name": "时间的形状",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260530/09_Choir_时间的形状/时间的形状.mp3",
+      "cover": "",
+      "time": "09:00",
+      "lyrics": "",
+      "color": "#607d8b"
     },
     {
       "name": "黎明前的一盏灯",
@@ -207,15 +216,6 @@
       "time": "23:00",
       "lyrics": "",
       "color": "#607d8b"
-    },
-    {
-      "name": "晨光小路",
-      "name_en": "",
-      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260529/03_Folk_晨光小路/晨光小路.mp3",
-      "cover": "",
-      "time": "03:00",
-      "lyrics": "",
-      "color": "#ff8c42"
     }
   ]
 }
