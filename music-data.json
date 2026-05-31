@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-01T01:36:33",
+  "updated": "2026-06-01T01:43:04",
   "tracks": [
     {
       "name": "凌晨的独处",
@@ -52,6 +52,15 @@
       "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260601/08_Ambient_三点十七分/三点十七分.mp3",
       "cover": "",
       "time": "08:00",
+      "lyrics": "",
+      "color": "#607d8b"
+    },
+    {
+      "name": "醒来之前",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260601/09_Ambient_醒来之前/醒来之前.mp3",
+      "cover": "",
+      "time": "09:00",
       "lyrics": "",
       "color": "#607d8b"
     }
