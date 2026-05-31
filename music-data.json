@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-01T00:56:00",
+  "updated": "2026-06-01T01:00:34",
   "tracks": [
     {
       "name": "凌晨的独处",
@@ -25,6 +25,15 @@
       "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260601/03_Ambient_晨之前/晨之前.mp3",
       "cover": "",
       "time": "03:00",
+      "lyrics": "",
+      "color": "#607d8b"
+    },
+    {
+      "name": "玻璃幕墙",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260601/06_Rock_玻璃幕墙/music.mp3",
+      "cover": "",
+      "time": "06:00",
       "lyrics": "",
       "color": "#607d8b"
     }
