@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-01T05:04:39",
+  "updated": "2026-06-01T05:08:57",
   "tracks": [
     {
       "name": "凌晨的边界",
@@ -27,6 +27,15 @@
       "time": "01:00",
       "lyrics": "",
       "color": "#ff8c42"
+    },
+    {
+      "name": "凌晨的告别",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260601/02_Rock_凌晨的告别/02_凌晨的告别.mp3",
+      "cover": "",
+      "time": "02:00",
+      "lyrics": "",
+      "color": "#607d8b"
     },
     {
       "name": "晨之前",
