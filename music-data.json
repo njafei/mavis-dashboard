@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-01T07:30:25",
+  "updated": "2026-06-01T07:36:49",
   "tracks": [
     {
       "name": "凌晨的边界",
@@ -187,6 +187,15 @@
       "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260601/23_Folk_第一缕光/第一缕光.mp3",
       "cover": "",
       "time": "23:00",
+      "lyrics": "",
+      "color": "#ff8c42"
+    },
+    {
+      "name": "早安，窗外的那棵树",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260601/25_Folk_早安，窗外的那棵树/早安，窗外的那棵树.mp3",
+      "cover": "",
+      "time": "07:00",
       "lyrics": "",
       "color": "#ff8c42"
     }
