@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-01T05:30:45",
+  "updated": "2026-06-01T05:34:57",
   "tracks": [
     {
       "name": "凌晨的边界",
@@ -117,6 +117,15 @@
       "time": "12:00",
       "lyrics": "",
       "color": "#ff8c42"
+    },
+    {
+      "name": "天将亮时",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260601/13_Choir_天将亮时/天将亮时.mp3",
+      "cover": "",
+      "time": "13:00",
+      "lyrics": "",
+      "color": "#607d8b"
     }
   ]
 }
