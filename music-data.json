@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-01T05:00:58",
+  "updated": "2026-06-01T05:03:56",
   "tracks": [
     {
       "name": "凌晨的边界",
@@ -72,6 +72,15 @@
       "time": "09:00",
       "lyrics": "",
       "color": "#607d8b"
+    },
+    {
+      "name": "朝霞微光",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260601/10_Folk_朝霞微光/朝霞微光.mp3",
+      "cover": "",
+      "time": "10:00",
+      "lyrics": "",
+      "color": "#ff8c42"
     }
   ]
 }
