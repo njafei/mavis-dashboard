@@ -1,10 +1,19 @@
 {
-  "updated": "2026-06-01T00:14:27",
+  "updated": "2026-06-01T00:17:32",
   "tracks": [
     {
       "name": "凌晨的独处",
       "name_en": "",
       "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260601/01_Folk_凌晨的独处/凌晨的独处.mp3",
+      "cover": "",
+      "time": "01:00",
+      "lyrics": "",
+      "color": "#ff8c42"
+    },
+    {
+      "name": "晨曦微光",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260601/01_Folk_晨曦微光/晨曦微光.mp3",
       "cover": "",
       "time": "01:00",
       "lyrics": "",
