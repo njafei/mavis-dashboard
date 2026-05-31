@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-01T05:17:14",
+  "updated": "2026-06-01T05:25:51",
   "tracks": [
     {
       "name": "凌晨的边界",
@@ -90,6 +90,15 @@
       "time": "10:00",
       "lyrics": "",
       "color": "#ff8c42"
+    },
+    {
+      "name": "天际那道光",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260601/11_Choir_天际那道光/天际那道光.mp3",
+      "cover": "",
+      "time": "11:00",
+      "lyrics": "",
+      "color": "#607d8b"
     }
   ]
 }
