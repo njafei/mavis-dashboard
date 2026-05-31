@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-01T06:12:55",
+  "updated": "2026-06-01T06:25:13",
   "tracks": [
     {
       "name": "凌晨的边界",
@@ -160,6 +160,15 @@
       "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260601/21_Choir_星尘的信笺/星尘的信笺.mp3",
       "cover": "",
       "time": "21:00",
+      "lyrics": "",
+      "color": "#607d8b"
+    },
+    {
+      "name": "黎明将至时",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260601/22_Choir_黎明将至时/黎明将至时.mp3",
+      "cover": "",
+      "time": "22:00",
       "lyrics": "",
       "color": "#607d8b"
     }
