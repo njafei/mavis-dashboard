@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-01T07:00:29",
+  "updated": "2026-06-01T07:03:34",
   "tracks": [
     {
       "name": "凌晨的边界",
@@ -171,6 +171,15 @@
       "time": "22:00",
       "lyrics": "",
       "color": "#607d8b"
+    },
+    {
+      "name": "第一缕光",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260601/23_Folk_第一缕光/第一缕光.mp3",
+      "cover": "",
+      "time": "23:00",
+      "lyrics": "",
+      "color": "#ff8c42"
     }
   ]
 }
