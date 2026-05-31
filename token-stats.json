@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-01 07:03",
+  "updated": "2026-06-01 07:13",
   "period": "今日",
   "categories": [
     {
@@ -10,8 +10,8 @@
     },
     {
       "name": "Cron执行",
-      "runs": 21,
-      "calls": 105,
+      "runs": 22,
+      "calls": 110,
       "pct": 83
     },
     {
