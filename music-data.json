@@ -1,10 +1,19 @@
 {
-  "updated": "2026-06-01T07:25:53",
+  "updated": "2026-06-01T07:30:25",
   "tracks": [
     {
       "name": "凌晨的边界",
       "name_en": "",
       "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260601/01_Choir_凌晨的边界/凌晨的边界.mp3",
+      "cover": "",
+      "time": "01:00",
+      "lyrics": "",
+      "color": "#607d8b"
+    },
+    {
+      "name": "夜雨怀旧",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260601/01_Choir_夜雨怀旧/夜雨怀旧.mp3",
       "cover": "",
       "time": "01:00",
       "lyrics": "",
