@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-01T05:25:51",
+  "updated": "2026-06-01T05:30:45",
   "tracks": [
     {
       "name": "凌晨的边界",
@@ -99,6 +99,24 @@
       "time": "11:00",
       "lyrics": "",
       "color": "#607d8b"
+    },
+    {
+      "name": "归途的灯",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260601/12_Cinematic_归途的灯/归途的灯.mp3",
+      "cover": "",
+      "time": "12:00",
+      "lyrics": "",
+      "color": "#ff7043"
+    },
+    {
+      "name": "童年的气球",
+      "name_en": "",
+      "url": "file:///Users/liufei/Desktop/灵感音乐收藏/20260601/12_Folk_童年的气球/童年的气球.mp3",
+      "cover": "",
+      "time": "12:00",
+      "lyrics": "",
+      "color": "#ff8c42"
     }
   ]
 }
