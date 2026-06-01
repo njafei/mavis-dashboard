@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-01 10:07",
+  "updated": "2026-06-01 16:41",
   "period": "今日",
   "categories": [
     {
@@ -10,21 +10,21 @@
     },
     {
       "name": "Cron执行",
-      "runs": 31,
-      "calls": 155,
-      "pct": 76
+      "runs": 49,
+      "calls": 245,
+      "pct": 83
     },
     {
       "name": "音乐生成",
       "runs": 34,
       "calls": 34,
-      "pct": 17
+      "pct": 12
     },
     {
       "name": "绘本创作",
       "runs": 1,
       "calls": 16,
-      "pct": 8
+      "pct": 5
     },
     {
       "name": "其他",
