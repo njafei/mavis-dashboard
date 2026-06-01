@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-01 08:30",
+  "updated": "2026-06-01 08:42",
   "period": "今日",
   "categories": [
     {
@@ -16,15 +16,15 @@
     },
     {
       "name": "音乐生成",
-      "runs": 27,
-      "calls": 27,
-      "pct": 16
+      "runs": 29,
+      "calls": 29,
+      "pct": 17
     },
     {
       "name": "绘本创作",
       "runs": 1,
       "calls": 16,
-      "pct": 10
+      "pct": 9
     },
     {
       "name": "其他",
